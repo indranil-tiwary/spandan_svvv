@@ -5,6 +5,7 @@
   catch(err){}
 
   function checkerBoi() {
+    fb_login();
     checkLoginState();
   }
 
@@ -37,6 +38,12 @@ firebase.initializeApp(config);
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+
+  function fb_login() {
+       FB.login( function(response) {}, { scope: 'public_profile,email' } );
+       checkLoginState();
+   }
 
 function checkLoginState() {
  FB.getLoginStatus(function(response) {

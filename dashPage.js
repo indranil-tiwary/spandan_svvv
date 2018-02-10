@@ -3,12 +3,21 @@ function checkerBoi(){
 
   if(sessionStorage.SpandanSessionValue){
     console.log(sessionStorage.SpandanSessionValue);
-
+    updateDisplay();
   }
   else{
     console.log("no value found");
     fb_login();
   }
+}
+checkerBoi();
+
+function updateDisplay(){
+
+  document.getElementById("changeImg").src = "yourTextHere";
+  document.getElementById("changeName").innerHTML = "Himank Pathak";
+  document.getElementById("changeSPId").innerHTML = "yourTextHere";
+
 }
 
 function firebasekaAuth(){
