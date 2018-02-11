@@ -45,15 +45,13 @@ function checkFirebaseData(){
   lRef.once('value', function(snapshot) {
   snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
-      console.log("hiiiiiiiiiiii");
       if (initialSS==childData['fbid']){
         console.log("dashboard pe ja");
         sessionStorage.SpandanSessionValue=initialSS;
         window.location.href = "dashboard.html";
       }
    });
- });
- console.log("hello bio");
+ }, function(error){console.log("nahi chalaaa"+error);});
 }
 
 
@@ -67,7 +65,6 @@ function checkerSession(){
 }
 
 function facebookMain() {
-    firebasekaAuth();
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
     function(response) {
@@ -78,6 +75,7 @@ function facebookMain() {
       var email=response.email;
       initialSS=uid;
       checkFirebaseData();
+      checkerSession();
     });
 }
 
@@ -113,6 +111,7 @@ firebase.initializeApp(config);
    }(document, 'script', 'facebook-jssdk'));
 
    //ENDS INITIALIZATION
+   firebasekaAuth();
    var database = firebase.database();
    var spandanId;
    var initialSS;

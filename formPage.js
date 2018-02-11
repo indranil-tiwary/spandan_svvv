@@ -38,7 +38,6 @@ function checkLoginState() {
 }
 
 function facebookMain() {
-    firebasekaAuth();
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
     function(response) {
@@ -146,7 +145,7 @@ window.fbAsyncInit = function() {
    }(document, 'script', 'facebook-jssdk'));
 
    //ENDS INITIALIZATION
-
+   firebasekaAuth();
    var database = firebase.database();
    var spandanId;
    var initialSS;
