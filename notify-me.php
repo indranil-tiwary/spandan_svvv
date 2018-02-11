@@ -13,10 +13,10 @@ variables with your actual MailChimp API Key and List ID below
 $STORE_MODE = "mailchimp";
 
 // Your MailChimp API Key
-$API_KEY =  "cb6a20c0676b26b78e8f18f047b619a2-us8";
+$API_KEY =  "e852c87ce77de5747b773074728d2450-us17";
 
 // Your MailChimp List ID
-$LIST_ID =  "6ffa2b9330";
+$LIST_ID =  "801cadf5ec";
 
 
 
@@ -34,7 +34,7 @@ require('assets/lib/MailChimp.php');
 if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["email"])) {
 
 	$email = $_POST["email"];
-	
+
 	// Send headers
 	header('HTTP/1.1 200 OK');
 	header('Status: 200 OK');
@@ -42,10 +42,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["email"])) {
 
 	// Check if email is valid
 	if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		
+
 		// Store in a file
 		if ($STORE_MODE == "file") { // Store in a file
-			
+
 			// Success
 			if(@file_put_contents($STORE_FILE, strtolower($email)."\r\n", FILE_APPEND)) {
 				echo json_encode(array(
@@ -58,12 +58,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["email"])) {
 						"type" => "FileAccessError"
 					));
 			}
-		
+
 		// Store in mailchimp
 		} elseif ($STORE_MODE == "mailchimp") { // Store with MailChimp
 			// Use MailChimp API to store
 			$MailChimp = new MailChimp($API_KEY);
-			
+
 			$result = $MailChimp->call('lists/subscribe', array(
 		                'id'                => $LIST_ID,
 		                'email'             => array('email'=>$email),
@@ -72,11 +72,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["email"])) {
 		                'replace_interests' => false,
 		                'send_welcome'      => false,
 		            ));
-	
-		    // Create a response     
-	
+
+		    // Create a response
+
 			// Success
-			if($result["email"] == $email) {     	
+			if($result["email"] == $email) {
 				echo json_encode(array(
 						"status" => "success"
 					));
@@ -93,7 +93,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["email"])) {
 					"status" => "error",
 				));
 		}
-	// Error 
+	// Error
 	} else {
 		echo json_encode(array(
 				"status" => "error",
