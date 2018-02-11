@@ -1,22 +1,13 @@
 
 function checkerBoi(){
 
-  if(sessionStorage.SpandanSessionValue){
-    console.log(sessionStorage.SpandanSessionValue);
-    updateDisplay();
+  if(true){
+    console.log("upar wlwla");
   }
   else{
-    console.log("no value found");
-    fb_login();
+    console.log("nichee");
+    //window.location.href = "index.html";
   }
-}
-
-function updateDisplay(){
-
-  document.getElementById("changeImg").src = "yourTextHere";
-  document.getElementById("changeName").innerHTML = "Himank Pathak";
-  document.getElementById("changeSPId").innerHTML = "yourTextHere";
-
 }
 
 function firebasekaAuth(){
@@ -34,13 +25,14 @@ function fb_login(){
  }
 
 function checkLoginState() {
- FB.getLoginStatus(function(response) {
-   statusChangeCallback(response);
-   console.log(response);
+  console.log("fb Initialize ho gya?");
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
  });
   function statusChangeCallback(response) {
    if (response.status === 'connected') {
      // Logged into your app and Facebook.
+     console.log("Connected into Facebook");
      facebookMain();
       } else {
         console.log("Please log into Facebook");
@@ -62,10 +54,64 @@ function facebookMain() {
       var name=response.name;
       var email=response.email;
       sessionStorage.SpandanSessionValue=uid;
+      readSPIDData();
+      initialSS=uid;
       console.log(sessionStorage.SpandanSessionValue);
-      window.location.href = "dashboard.html";
-      //window.open("localhost:8000/dashboard.html", "_self")
+      changeFormData(uid, urlpic, name, email, spandanid);
     });
+}
+
+function changeFormData(uid, urlpic, name, email, spandanid){
+  document.getElementById('uid').value= uid;
+  document.getElementById('urlpic').value= urlpic;
+  document.getElementById('name').value= name;
+  document.getElementById('email').value= email;
+  document.getElementById('spandanid').value= spandanid;
+
+}
+
+function readSPIDData(){
+   var leadsRef = database.ref('spandanid');
+   leadsRef.on('value', function(snapshot) {
+     snapshot.forEach(function(childSnapshot) {
+       spandanId = childSnapshot.val();
+    });
+  });
+}
+
+function writeUserData(userId, spandanid, name, email, imageUrl) {
+  firebase.database().ref('users/' + initialSS).set({
+    spid: spandanid,
+    fbid:initialSS,
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+
+  });
+  firebase.database().ref('spandanid/').set({
+    SPId:spandanId+1
+  });
+}
+
+function checkFirebaseData(){
+  var leadsRef = database.ref('users');
+  leadsRef.on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      if (initialSS==childData['fbid'] && sessionStorage.SpandanSessionValue ){
+        var uid=childData['fbid'];
+        var urlpic=childData['profile_picture'];
+        var name=childData['username'];
+        var email=childData['email'];
+        console.log(childData);
+        window.location.href = "dashboard.html";
+      }
+      else{
+        console.log(">>>>>>>>>>>>>>>>")
+        window.location.href = "form.html";
+      }
+   });
+ });
 }
 
 
@@ -81,7 +127,7 @@ var config = {
 firebase.initializeApp(config);
 
 //FACEBOOK
-  window.fbAsyncInit = function() {
+window.fbAsyncInit = function() {
     FB.init({
       appId      : '1771257743178792',
       cookie     : true,
@@ -89,6 +135,8 @@ firebase.initializeApp(config);
       version    : 'v2.11'
     });
     FB.AppEvents.logPageView();
+    console.log("fb Initialized");
+    checkLoginState();
   };
 
   (function(d, s, id){
@@ -100,6 +148,8 @@ firebase.initializeApp(config);
    }(document, 'script', 'facebook-jssdk'));
 
    //ENDS INITIALIZATION
+
    var database = firebase.database();
    var spandanId;
-checkerBoi();
+   var initialSS;
+   checkerBoi();

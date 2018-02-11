@@ -2,7 +2,7 @@
 function checkerBoi(){
 
   if(sessionStorage.SpandanSessionValue){
-    console.log(sessionStorage.SpandanSessionValue);
+    console.log("hi>"+sessionStorage.SpandanSessionValue);
 
   }
   else{
@@ -36,6 +36,7 @@ function checkLoginState() {
      facebookMain();
       } else {
         console.log("Please log into Facebook");
+        fb_login();
         // The person is not logged into your app or we are unable to tell.
       //document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
     }
@@ -53,13 +54,35 @@ function facebookMain() {
       var name=response.name;
       var email=response.email;
       sessionStorage.SpandanSessionValue=uid;
+      initialSS=uid;
       console.log(sessionStorage.SpandanSessionValue);
-      window.location.href = "dashboard.html";
+      checkFirebaseData();
       //window.open("localhost:8000/dashboard.html", "_self")
     });
 }
 
+function checkFirebaseData(){
+  var leadsRef = database.ref('users');
+  leadsRef.on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      if (initialSS==childData['fbid']){
+        var uid=childData['fbid'];
+        var urlpic=childData['profile_picture'];
+        var name=childData['username'];
+        var email=childData['email'];
+        console.log(childData);
+        window.location.href = "dashboard.html";
+      }
+      else{
+        console.log(">>>>>>>>>>>>>>>>")
+        sessionStorage.tokenEdit=true;
+        window.location.href = "form.html";
+      }
+   });
+ });
 
+}
 
 // Initialize Firebase
 var config = {
@@ -92,3 +115,6 @@ firebase.initializeApp(config);
    }(document, 'script', 'facebook-jssdk'));
 
    //ENDS INITIALIZATION
+   var database = firebase.database();
+   var spandanId;
+   var initialSS;

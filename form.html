@@ -106,24 +106,37 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9 align-center">
+				<form>
+					<input id="uid" style="display:none" type="hidden" name="userid"/>
+					<input id="urlpic" style="display:none" type="hidden" name="urlpic"/>
+					<input id="spandanid" style="display:none" type="hidden" name="spandaId"/>
+				</form>
 				<form id="nl-form" class="nl-form ">
-					<input id="name" type="text" name="name" placeholder="Himank Pathak" data-subline="Enter your Name"/><br>
-					<input id="email1" type="text" name="email1" placeholder="Your Email" data-subline="Enter your email address"/><br>
-					<input id="phone" type="tel" name="phone" placeholder="Enter Phone Number" data-subline="Enter your phone number"/><br>
+					Name:
+					<input id="name" type="text" name="name" required placeholder="Your Name" data-subline="Enter your Name"/><br>
+					Email:
+					<input id="email" type="text" name="email1" required placeholder="Your Email" data-subline="Enter your email address"/><br>
+					Mobile No.:
+					<input id="phone" type="tel" name="phone" required placeholder="Your Phone Number" data-subline="Enter your phone number"/><br>
+					College:
 					<input id="college" type="text" name="college" placeholder="Your College Name" data-subline="Enter your College Name"/><br>
+					City:
 					<input id="city" type="text" name="city" placeholder="Your City" data-subline="Enter your city name"/><br>
-					Which year are you in? <select id="year">
+					Year of study:
+					<select id="year">
 						<option value="1" selected>First</option>
 						<option value="2">Second</option>
 						<option value="3">Third</option>
 						<option value="4">Fourth</option>
 						<option value="5">Fifth</option>
 					</select> <br>
+					Branch of study:
 					<input id="branch" type="text" name="branch" placeholder="Your Branch Name" data-subline="Enter your branch"/><br>
-					<input id="course" type="text" name="course" placeholder="Your Course Name" data-subline="Enter your course name"/><br>
+					Degree:
+					<input id="course" type="text" name="course" placeholder="Your Degree Name" data-subline="Enter your degree name"/><br>
 
 					<div class="nl-submit-wrap">
-						<button class="nl-submit btn-effect" type="submit" id="submit_btn">Submit</button>
+						<button class="nl-submit btn-effect" type="submit" id="submit_spandan">Submit</button>
 					</div>
 					<div id="result"></div>
 					<div class="nl-overlay"></div>
@@ -138,7 +151,7 @@
 							<ul>
 								<li>Your details are fetched and used for event registration.</li>
 								<li>Completing the details and registration is compulsory to be a part of Spandan 2018.</li>
-			
+
 							</ul>
 							</div>
 
@@ -209,7 +222,7 @@
 					<div class="col-md-6 align-center">
 						<ul class="legals">
 							<li><button class="md-trigger " data-modal="modal-11">Disclaimer</button></li>
-							<li><a href="http://multia.in/">Made in Multia</a></li>
+							<li>&copy; Spandan 2018, made with <i class="fa fa-heart"></i>  by Team Spandan</li>
 						</ul>
 					</div>
 					<div class="md-modal md-effect-9" id="modal-11">
@@ -233,6 +246,8 @@
 
 	</div>
 		<!--SCRIPTS-->
+		<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+		<script src="formPage.js"></script>
 
 		<script type="text/javascript" src="assets/js/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="assets/js/jquery-ui-1.10.4.min.js"></script>
@@ -243,7 +258,6 @@
         <!--3D GALLERY-->
         <script type="text/javascript" src="assets/js/classie.grid.gallery.js"></script>
 		<script type="text/javascript" src="assets/js/modernizr.gridgallery.js"></script>
-		<script type="text/javascript" src="assets/js/cbpGridGallery.js"></script>
 
 		<script type="text/javascript" src="assets/js/classie.js" ></script>
 		<script type="text/javascript" src="assets/js/modalEffects.js" ></script>
@@ -259,11 +273,6 @@
         <script type="text/javascript" src="assets/js/modernizr.js" ></script>
 		<script type="text/javascript" src="assets/js/cbpFWTabs.js" ></script>
 
-		<!--SPONSOR SLIDER-->
-		<script type="text/javascript" src="assets/js/jssor.core.js"></script>
-		<script type="text/javascript" src="assets/js/jssor.utils.js"></script>
-		<script type="text/javascript" src="assets/js/jssor.slider.js"></script>
-		<script type="text/javascript" src="assets/js/sponsor_init.js"></script>
 
 		<!-- SMOOTH SCROLL  -->
 		<script type="text/javascript" src="assets/js/smooth-scroll.js"></script>
@@ -280,7 +289,7 @@
 		<script type="text/javascript" src="assets/js/wow.min.js"></script>
 
 		<!-- INITIALIZATION  -->
-		<script type="text/javascript" src="assets/js/init.js"></script>
+		<script type="text/javascript" src="assets/js/initForm.js"></script>
 
     </body>
 </html>

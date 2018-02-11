@@ -82,7 +82,7 @@ function writeEventData(userId, name, email, imageUrl) {
   });
 }
 
-function func(){
+function readData(){
    var leadsRef = database.ref('spandanid');
    leadsRef.on('value', function(snapshot) {
      snapshot.forEach(function(childSnapshot) {
