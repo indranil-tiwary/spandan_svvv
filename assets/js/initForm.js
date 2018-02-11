@@ -200,6 +200,7 @@ jQuery( document ).ready(function( $ ) {
 	$("#submit_spandan").click(function()
 	{
 		console.log("writing data");
+		console.log(spid);
 		writeUserData(document.getElementById('uid').value,
 			document.getElementById('spid').value,
 			document.getElementById('urlpic').value,
@@ -213,7 +214,7 @@ jQuery( document ).ready(function( $ ) {
 			document.getElementById('degree').value,
 		);
 		console.log("pichu ayaa main iniit");
-		//window.location.href = "dashboard.html";
+		window.location.href = "dashboard.html";
 		//document.getElementById('login_form').submit();
 	});
 

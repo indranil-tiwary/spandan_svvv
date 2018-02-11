@@ -1,5 +1,5 @@
 function checkerBoi(){
-  if(sessionStorage.tokenEdit==true){
+  if(sessionStorage.tokenEdit){
     console.log("upar wlwla");
     checkLoginState();
   }

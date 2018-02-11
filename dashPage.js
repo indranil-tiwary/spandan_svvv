@@ -21,7 +21,7 @@ function updateDisplay(urlpic, name, spid, email){
   document.getElementById("mainChange").innerHTML = '<img id="changeImg" style="width:20vh;" src="" class="img-circle" alt="spandan profile"><h1 id="changeName">Aakash Mehta</h1><h2 id="changeSPId">SP-0018101</h2><h2 id="changeEmail">abcd</h2><a href="#" class="learn-more-btn btn-effect wow animated fadeIn">Edit Profile</a>';
   console.log("change wala");
   document.getElementById("changeImg").src = urlpic;
-  document.getElementById("changeName").innerHTML = "Himank Pathak";
+  document.getElementById("changeName").innerHTML = name;
   document.getElementById("changeSPId").innerHTML = "SPID-"+spid;
   document.getElementById("changeEmail").innerHTML = email;
 }
