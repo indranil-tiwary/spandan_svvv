@@ -1,20 +1,27 @@
 
 function checkEvent(eName){
   if(sessionStorage.SpandanSessionValue){
-  var eventName;
-  var eventFBName;
+    initialSS=sessionStorage.SpandanSessionValue;
+    readFirebaseData();
+    var eventName;
+    var eventFBName;
   if(eName==1){
     var eventName="Taal - The Dance Competition"
     var eventFBName="taal"
-    writeEvent
+    writeUserEventData(eventFBName);
+    jQuery("#modal-1").removeClass("md-show");
   }
   else if (eName==2) {
     var eventName="Swaranjali - The Singing Competition"
     var eventFBName="swaranjali"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-2").removeClass("md-show");
   }
   else if (eName==3) {
     var eventName="Ambriti - The Fashion Show"
     var eventFBName="ambriti"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-3").removeClass("md-show");
   }
 }
 else{
@@ -22,13 +29,30 @@ else{
   }
 }
 
-function confirmCall(){
-
-
+function writeUserEventData(eventFBName){
+  firebase.database().ref('events/' + eventFBName+'/'+initialSS).update({
+    spid:spandanId
+  });
+  firebase.database().ref('users/' + initialSS).update({
+    events: SPevents+","+eventFBName
+  });
+}
+function myMain(){
+  jQuery("#modal-3").removeClass("md-show");
 }
 
-
-
+function readFirebaseData(){
+  var leadsRef = database.ref('users');
+  leadsRef.on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      if (initialSS==childData['fbid']){
+        spandanId=childData['spid'];
+        SPevents=childData['events'];
+      }
+   });
+ });
+}
 
 function firebasekaAuth(){
   firebase.auth().signInAnonymously().catch(function(error) {
@@ -58,42 +82,39 @@ function checkLoginState() {
   }
 }
 
-function facebookMain() {
-    firebasekaAuth();
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
-    function(response) {
-      console.log('Successful login for: ' + response.name);
-      var uid=response.id;
-      var urlpic=response.picture.data.url;
-      var name=response.name;
-      var email=response.email;
-      initialSS=uid;
-      checkFirebaseData();
-    });
-}
-
 function checkFirebaseData(){
-  console.log("funct chala");
   var leadsRef = database.ref('users');
   leadsRef.on('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
       if (initialSS==childData['fbid']){
         var uid=childData['fbid'];
-        var urlpic=childData['profile_picture'];
-        var name=childData['username'];
-        var email=childData['email'];
         sessionStorage.SpandanSessionValue=uid;
         window.location.href = "events.html";
       }
    });
  });
- console.log("form pe ja")
- sessionStorage.tokenEdit=true;
- window.location.href = "form.html";
+}
+function checkerSession(){
+  if(sessionStorage.SpandanSessionValue){}
+  else{
+     console.log("form pe ja");
+     sessionStorage.tokenEdit=true;
+     window.location.href = "form.html";
+  }
 }
 
+function facebookMain() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
+    function(response) {
+      console.log('Successful login for: ' + response.name);
+      var uid=response.id;
+      initialSS=uid;
+      checkFirebaseData();
+      checkerSession();
+    });
+}
 
 // Initialize Firebase
 var config = {
@@ -126,6 +147,8 @@ firebase.initializeApp(config);
    }(document, 'script', 'facebook-jssdk'));
 
    //ENDS INITIALIZATION
+   firebasekaAuth();
    var database = firebase.database();
    var spandanId;
    var initialSS;
+   var SPevents;

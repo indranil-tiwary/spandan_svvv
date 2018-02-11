@@ -38,7 +38,6 @@ function checkLoginState() {
 }
 
 function facebookMain() {
-    firebasekaAuth();
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
     function(response) {
@@ -83,6 +82,7 @@ function writeUserData(userId, imageUrl, name, email, mobile, college, city, yea
     year: year,
     branch: branch,
     degree: degree,
+    events:""
   });
   firebase.database().ref('spandanid/').set({
     SPId:spandanId+1
@@ -146,7 +146,7 @@ window.fbAsyncInit = function() {
    }(document, 'script', 'facebook-jssdk'));
 
    //ENDS INITIALIZATION
-
+   firebasekaAuth();
    var database = firebase.database();
    var spandanId;
    var initialSS;

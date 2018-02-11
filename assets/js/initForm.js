@@ -210,7 +210,7 @@ jQuery( document ).ready(function( $ ) {
 			document.getElementById('branch').value,
 			document.getElementById('degree').value,
 		);
-		console.log("picgee");
+		console.log("pichee");
 		window.location.href = "dashboard.html";
 	});
 

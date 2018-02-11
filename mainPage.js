@@ -40,44 +40,41 @@ function checkLoginState() {
     }
   }
 }
+function checkFirebaseData(){
+  var lRef = database.ref('users/');
+  lRef.once('value', function(snapshot) {
+  snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      if (initialSS==childData['fbid']){
+        console.log("dashboard pe ja");
+        sessionStorage.SpandanSessionValue=initialSS;
+        window.location.href = "dashboard.html";
+      }
+   });
+ }, function(error){console.log("nahi chalaaa"+error);});
+}
+
+
+function checkerSession(){
+  if(sessionStorage.SpandanSessionValue){}
+  else{
+     console.log("form pe ja");
+     sessionStorage.tokenEdit=true;
+     window.location.href = "form.html";
+  }
+}
 
 function facebookMain() {
-    firebasekaAuth();
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
     function(response) {
       console.log('Successful login for: ' + response.name);
-      var uid=response.id;
-      var urlpic=response.picture.data.url;
-      var name=response.name;
-      var email=response.email;
-      initialSS=uid;
+      initialSS=response.id;
       checkFirebaseData();
-      //window.open("localhost:8000/dashboard.html", "_self")
+      checkerSession();
     });
 }
 
-function checkFirebaseData(){
-  console.log("funct chala");
-  var leadsRef = database.ref('users');
-  leadsRef.on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      if (initialSS==childData['fbid']){
-        var uid=childData['fbid'];
-        var urlpic=childData['profile_picture'];
-        var name=childData['username'];
-        var email=childData['email'];
-        console.log("dashboard pe ja");
-        sessionStorage.SpandanSessionValue=uid;
-        window.location.href = "dashboard.html";
-      }
-   });
- });
- console.log("form pe ja")
- sessionStorage.tokenEdit=true;
- window.location.href = "form.html";
-}
 
 // Initialize Firebase
 var config = {
@@ -110,6 +107,7 @@ firebase.initializeApp(config);
    }(document, 'script', 'facebook-jssdk'));
 
    //ENDS INITIALIZATION
+   firebasekaAuth();
    var database = firebase.database();
    var spandanId;
    var initialSS;

@@ -2,8 +2,9 @@
 function checkerBoi(){
 
   if(sessionStorage.SpandanSessionValue){
-    console.log("session h yaha");
+    console.log("session h yaha"+sessionStorage.SpandanSessionValue);
     initialSS=sessionStorage.SpandanSessionValue;
+    firebasekaAuth();
     checkFirebaseData();
   }
   else{
@@ -31,16 +32,13 @@ function checkFirebaseData(){
   leadsRef.on('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
-      console.log(childData['fbid']);
       if (initialSS==childData['fbid']){
+        sessionStorage.SpandanSessionValue=childData['fbid'];
         var spid=childData['spid'];
         var urlpic=childData['profile_picture'];
         var name=childData['username'];
         var email=childData['email'];
         updateDisplay(urlpic, name, spid, email);
-      }
-      else{
-        console.log(">>>>>>>>>>>>>>>>");
       }
    });
  });
@@ -74,41 +72,25 @@ function checkLoginState() {
   }
 }
 
+function checkerSession(){
+  if(sessionStorage.SpandanSessionValue){}
+  else{
+     console.log("form pe ja");
+     sessionStorage.tokenEdit=true;
+     window.location.href = "form.html";
+  }
+}
+
 function facebookMain() {
-    firebasekaAuth();
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
     function(response) {
       console.log('Successful login for: ' + response.name);
       var uid=response.id;
-      var urlpic=response.picture.data.url;
-      var name=response.name;
-      var email=response.email;
-      sessionStorage.SpandanSessionValue=uid;
-      console.log(sessionStorage.SpandanSessionValue);
+      initialSS=uid;
       checkFirebaseData();
+      checkerSession();
     });
-}
-function checkFirebaseData(){
-  console.log("funct chala");
-  var leadsRef = database.ref('users');
-  leadsRef.on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      if (initialSS==childData['fbid']){
-        var uid=childData['fbid'];
-        var urlpic=childData['profile_picture'];
-        var name=childData['username'];
-        var email=childData['email'];
-        console.log("dashboard pe ja");
-        sessionStorage.SpandanSessionValue=uid;
-        window.location.href = "dashboard.html";
-      }
-   });
- });
- console.log("form pe ja")
- sessionStorage.tokenEdit=true;
- window.location.href = "form.html";
 }
 
 
@@ -143,6 +125,7 @@ firebase.initializeApp(config);
    }(document, 'script', 'facebook-jssdk'));
 
    //ENDS INITIALIZATION
+   firebasekaAuth();
    var database = firebase.database();
    var spandanId;
    var initialSS;
