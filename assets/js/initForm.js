@@ -203,7 +203,7 @@ jQuery( document ).ready(function( $ ) {
 		console.log(document.getElementById('urlpic').value);
 		console.log(document.getElementById('email').value);
 		//writeUserData();
-		//window.location.href = "index.html";
+		window.location.href = "dashboard.html";
 		//document.getElementById('login_form').submit();
 	});
 

@@ -3,7 +3,7 @@ function checkerBoi(){
 
   if(sessionStorage.SpandanSessionValue){
     console.log("hi>"+sessionStorage.SpandanSessionValue);
-
+    window.location.href = "dashboard.html";
   }
   else{
     console.log("no value found");
@@ -36,7 +36,6 @@ function checkLoginState() {
      facebookMain();
       } else {
         console.log("Please log into Facebook");
-        fb_login();
         // The person is not logged into your app or we are unable to tell.
       //document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
     }

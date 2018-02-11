@@ -79,14 +79,19 @@ function readSPIDData(){
   });
 }
 
-function writeUserData(userId, spandanid, name, email, imageUrl) {
+function writeUserData(userId, spandanid, imageUrl, name, email, mobile) {
   firebase.database().ref('users/' + initialSS).set({
     spid: spandanid,
     fbid:initialSS,
+    profile_picture : imageUrl,
     username: name,
     email: email,
-    profile_picture : imageUrl
-
+    mobile: mobile,
+    college: college,
+    city: city,
+    year: year,
+    branch: branch,
+    degree: degree,
   });
   firebase.database().ref('spandanid/').set({
     SPId:spandanId+1
