@@ -40,6 +40,31 @@ function checkLoginState() {
     }
   }
 }
+function checkFirebaseData(){
+  var lRef = database.ref('users/');
+  lRef.once('value', function(snapshot) {
+  snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      console.log("hiiiiiiiiiiii");
+      if (initialSS==childData['fbid']){
+        console.log("dashboard pe ja");
+        sessionStorage.SpandanSessionValue=initialSS;
+        window.location.href = "dashboard.html";
+      }
+   });
+ });
+ console.log("hello bio");
+}
+
+
+function checkerSession(){
+  if(sessionStorage.SpandanSessionValue){}
+  else{
+     console.log("form pe ja");
+     sessionStorage.tokenEdit=true;
+     window.location.href = "form.html";
+  }
+}
 
 function facebookMain() {
     firebasekaAuth();
@@ -53,31 +78,9 @@ function facebookMain() {
       var email=response.email;
       initialSS=uid;
       checkFirebaseData();
-      //window.open("localhost:8000/dashboard.html", "_self")
     });
 }
 
-function checkFirebaseData(){
-  console.log("funct chala");
-  var leadsRef = database.ref('users');
-  leadsRef.on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      if (initialSS==childData['fbid']){
-        var uid=childData['fbid'];
-        var urlpic=childData['profile_picture'];
-        var name=childData['username'];
-        var email=childData['email'];
-        console.log("dashboard pe ja");
-        sessionStorage.SpandanSessionValue=uid;
-        window.location.href = "dashboard.html";
-      }
-   });
- });
- console.log("form pe ja")
- sessionStorage.tokenEdit=true;
- window.location.href = "form.html";
-}
 
 // Initialize Firebase
 var config = {

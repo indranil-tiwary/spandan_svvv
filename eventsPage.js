@@ -23,10 +23,14 @@ else{
 }
 
 function confirmCall(){
-
-
+  jQuery(function(){
+  jQuery("openDialog").click(function(){
+     jQuery('#bookId').val(jQuery(this).data('id'));
+    jQuery("#addBookDialog").modal("show");
+    console.log("HIMANKKNNK");
+  });
+});
 }
-
 
 
 
