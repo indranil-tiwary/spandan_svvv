@@ -22,7 +22,6 @@ function firebasekaAuth(){
 
 function fb_login(){
      FB.login( function(response) {checkLoginState();}, { scope: 'public_profile,email' } );
-
  }
 
 function checkLoginState() {
@@ -65,7 +64,6 @@ function checkFirebaseData(){
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
       if (initialSS==childData['fbid']){
-
         var uid=childData['fbid'];
         var urlpic=childData['profile_picture'];
         var name=childData['username'];
