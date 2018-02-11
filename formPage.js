@@ -82,6 +82,7 @@ function writeUserData(userId, imageUrl, name, email, mobile, college, city, yea
     year: year,
     branch: branch,
     degree: degree,
+    events:""
   });
   firebase.database().ref('spandanid/').set({
     SPId:spandanId+1

@@ -33,6 +33,7 @@ function checkFirebaseData(){
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
       if (initialSS==childData['fbid']){
+        sessionStorage.SpandanSessionValue=childData['fbid'];
         var spid=childData['spid'];
         var urlpic=childData['profile_picture'];
         var name=childData['username'];
@@ -71,18 +72,24 @@ function checkLoginState() {
   }
 }
 
+function checkerSession(){
+  if(sessionStorage.SpandanSessionValue){}
+  else{
+     console.log("form pe ja");
+     sessionStorage.tokenEdit=true;
+     window.location.href = "form.html";
+  }
+}
+
 function facebookMain() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
     function(response) {
       console.log('Successful login for: ' + response.name);
-      uid=response.id;
-      urlpic=response.picture.data.url;
-      name=response.name;
-      email=response.email;
-      sessionStorage.SpandanSessionValue=uid;
-      console.log(sessionStorage.SpandanSessionValue);
+      var uid=response.id;
+      initialSS=uid;
       checkFirebaseData();
+      checkerSession();
     });
 }
 
@@ -122,8 +129,4 @@ firebase.initializeApp(config);
    var database = firebase.database();
    var spandanId;
    var initialSS;
-   var uid;
-   var urlpic;
-   var name;
-   var email;
 checkerBoi();

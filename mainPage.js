@@ -69,11 +69,7 @@ function facebookMain() {
     FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
     function(response) {
       console.log('Successful login for: ' + response.name);
-      var uid=response.id;
-      var urlpic=response.picture.data.url;
-      var name=response.name;
-      var email=response.email;
-      initialSS=uid;
+      initialSS=response.id;
       checkFirebaseData();
       checkerSession();
     });
