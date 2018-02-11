@@ -79,7 +79,6 @@ jQuery( document ).ready(function( $ ) {
 
 	});
 
-
 	/********Vimeo Video*****************/
 	$('.venobox').venobox({
 		numeratio: true,
@@ -195,27 +194,6 @@ jQuery( document ).ready(function( $ ) {
 	);
 
 	wow.init();
-
-
-	$("#submit_spandan").click(function()
-	{
-		console.log("writing data");
-		writeUserData(document.getElementById('uid').value,
-			document.getElementById('spid').value,
-			document.getElementById('urlpic').value,
-			document.getElementById('name').value,
-			document.getElementById('email').value,
-			document.getElementById('mobile').value,
-			document.getElementById('college').value,
-			document.getElementById('city').value,
-			document.getElementById('year').value,
-			document.getElementById('branch').value,
-			document.getElementById('degree').value,
-		);
-		console.log("pichu ayaa main iniit");
-		//window.location.href = "dashboard.html";
-		//document.getElementById('login_form').submit();
-	});
 
 
 

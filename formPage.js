@@ -1,12 +1,10 @@
-
 function checkerBoi(){
-
-  if(true){
+  if(sessionStorage.tokenEdit==true){
     console.log("upar wlwla");
+    checkLoginState();
   }
   else{
-    console.log("nichee");
-    //window.location.href = "index.html";
+    window.location.href = "index.html";
   }
 }
 
@@ -20,8 +18,7 @@ function firebasekaAuth(){
 }
 
 function fb_login(){
-     FB.login( function(response) {}, { scope: 'public_profile,email' } );
-     checkLoginState();
+     FB.login( function(response) {checkLoginState();}, { scope: 'public_profile,email' } );
  }
 
 function checkLoginState() {
@@ -36,7 +33,6 @@ function checkLoginState() {
      facebookMain();
       } else {
         console.log("Please log into Facebook");
-        fb_login();
         // The person is not logged into your app or we are unable to tell.
       //document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
     }
@@ -57,16 +53,16 @@ function facebookMain() {
       readSPIDData();
       initialSS=uid;
       console.log(sessionStorage.SpandanSessionValue);
-      changeFormData(uid, urlpic, name, email, spandanid);
+      changeFormData(uid, urlpic, name, email);
     });
 }
 
-function changeFormData(uid, urlpic, name, email, spandanid){
+function changeFormData(uid, urlpic, name, email){
   document.getElementById('uid').value= uid;
   document.getElementById('urlpic').value= urlpic;
   document.getElementById('name').value= name;
   document.getElementById('email').value= email;
-  document.getElementById('spandanid').value= spandanid;
+  document.getElementById('spid').value= spandanId;
 
 }
 
@@ -79,10 +75,12 @@ function readSPIDData(){
   });
 }
 
-function writeUserData(userId, spandanid, imageUrl, name, email, mobile) {
+function writeUserData(userId, spandanid, imageUrl, name, email, mobile, college, city, year, branch, degree) {
+  console.log("ID"+spandanId);
+  console.log("id"+spandanid);
   firebase.database().ref('users/' + initialSS).set({
     spid: spandanid,
-    fbid:initialSS,
+    fbid: userId,
     profile_picture : imageUrl,
     username: name,
     email: email,
@@ -96,6 +94,7 @@ function writeUserData(userId, spandanid, imageUrl, name, email, mobile) {
   firebase.database().ref('spandanid/').set({
     SPId:spandanId+1
   });
+  sessionStorage.tokenEdit=false;
 }
 
 function checkFirebaseData(){

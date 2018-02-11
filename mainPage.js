@@ -21,8 +21,8 @@ function firebasekaAuth(){
 }
 
 function fb_login(){
-     FB.login( function(response) {}, { scope: 'public_profile,email' } );
-     checkLoginState();
+     FB.login( function(response) {checkLoginState();}, { scope: 'public_profile,email' } );
+
  }
 
 function checkLoginState() {
@@ -52,15 +52,14 @@ function facebookMain() {
       var urlpic=response.picture.data.url;
       var name=response.name;
       var email=response.email;
-      sessionStorage.SpandanSessionValue=uid;
       initialSS=uid;
-      console.log(sessionStorage.SpandanSessionValue);
       checkFirebaseData();
       //window.open("localhost:8000/dashboard.html", "_self")
     });
 }
 
 function checkFirebaseData(){
+  console.log("funct chala");
   var leadsRef = database.ref('users');
   leadsRef.on('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
@@ -70,11 +69,12 @@ function checkFirebaseData(){
         var urlpic=childData['profile_picture'];
         var name=childData['username'];
         var email=childData['email'];
-        console.log(childData);
+        console.log("dashboard pe ja");
+        sessionStorage.SpandanSessionValue=uid;
         window.location.href = "dashboard.html";
       }
       else{
-        console.log(">>>>>>>>>>>>>>>>")
+        console.log("form pe ja")
         sessionStorage.tokenEdit=true;
         window.location.href = "form.html";
       }

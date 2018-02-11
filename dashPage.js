@@ -2,21 +2,48 @@
 function checkerBoi(){
 
   if(sessionStorage.SpandanSessionValue){
-    console.log(sessionStorage.SpandanSessionValue);
-    updateDisplay();
+    console.log("session h yaha");
+    initialSS=sessionStorage.SpandanSessionValue;
+    checkFirebaseData();
   }
   else{
+    dashChange();
     console.log("no value found");
     fb_login();
   }
 }
 
-function updateDisplay(){
+function dashChange(){
+  document.getElementById("mainChange").innerHTML = '<a class="fb" href="#" onclick="fb_login();"><i class="fa fa-facebook"></i><h1>connect via facebook</h1></a>';
+}
 
-  document.getElementById("changeImg").src = "yourTextHere";
+function updateDisplay(urlpic, name, spid, email){
+  document.getElementById("mainChange").innerHTML = '<img id="changeImg" style="width:20vh;" src="" class="img-circle" alt="spandan profile"><h1 id="changeName">Aakash Mehta</h1><h2 id="changeSPId">SP-0018101</h2><h2 id="changeEmail">abcd</h2><a href="#" class="learn-more-btn btn-effect wow animated fadeIn">Edit Profile</a>';
+  console.log("change wala");
+  document.getElementById("changeImg").src = urlpic;
   document.getElementById("changeName").innerHTML = "Himank Pathak";
-  document.getElementById("changeSPId").innerHTML = "yourTextHere";
+  document.getElementById("changeSPId").innerHTML = "SPID-"+spid;
+  document.getElementById("changeEmail").innerHTML = email;
+}
 
+function checkFirebaseData(){
+  var leadsRef = database.ref('users');
+  leadsRef.on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      console.log(childData['fbid']);
+      if (initialSS==childData['fbid']){
+        var spid=childData['spid'];
+        var urlpic=childData['profile_picture'];
+        var name=childData['username'];
+        var email=childData['email'];
+        updateDisplay(urlpic, name, spid, email);
+      }
+      else{
+        console.log(">>>>>>>>>>>>>>>>");
+      }
+   });
+ });
 }
 
 function firebasekaAuth(){
@@ -44,7 +71,6 @@ function checkLoginState() {
      facebookMain();
       } else {
         console.log("Please log into Facebook");
-        fb_login();
         // The person is not logged into your app or we are unable to tell.
       //document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
     }
@@ -102,4 +128,5 @@ firebase.initializeApp(config);
    //ENDS INITIALIZATION
    var database = firebase.database();
    var spandanId;
+   var initialSS;
 checkerBoi();
