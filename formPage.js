@@ -1,7 +1,6 @@
 function checkerBoi(){
   if(sessionStorage.tokenEdit){
-    console.log("upar wlwla");
-    checkLoginState();
+    console.log("STAY");
   }
   else{
     window.location.href = "index.html";
@@ -22,7 +21,6 @@ function fb_login(){
  }
 
 function checkLoginState() {
-  console.log("fb Initialize ho gya?");
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
  });
@@ -52,7 +50,6 @@ function facebookMain() {
       sessionStorage.SpandanSessionValue=uid;
       readSPIDData();
       initialSS=uid;
-      console.log(sessionStorage.SpandanSessionValue);
       changeFormData(uid, urlpic, name, email);
     });
 }
@@ -62,24 +59,20 @@ function changeFormData(uid, urlpic, name, email){
   document.getElementById('urlpic').value= urlpic;
   document.getElementById('name').value= name;
   document.getElementById('email').value= email;
-  document.getElementById('spid').value= spandanId;
-
 }
 
 function readSPIDData(){
-   var leadsRef = database.ref('spandanid');
-   leadsRef.on('value', function(snapshot) {
-     snapshot.forEach(function(childSnapshot) {
-       spandanId = childSnapshot.val();
-    });
+  var starRef = firebase.database().ref('spandanid/SPId');
+  starRef.on('value', function(snapshot) {
+  spandanId=snapshot.val();
+  console.log(snapshot.val())
   });
 }
 
-function writeUserData(userId, spandanid, imageUrl, name, email, mobile, college, city, year, branch, degree) {
-  console.log("ID"+spandanId);
-  console.log("id"+spandanid);
+function writeUserData(userId, imageUrl, name, email, mobile, college, city, year, branch, degree) {
+
   firebase.database().ref('users/' + initialSS).set({
-    spid: spandanid,
+    spid: spandanId,
     fbid: userId,
     profile_picture : imageUrl,
     username: name,
@@ -94,7 +87,8 @@ function writeUserData(userId, spandanid, imageUrl, name, email, mobile, college
   firebase.database().ref('spandanid/').set({
     SPId:spandanId+1
   });
-  sessionStorage.tokenEdit=false;
+  sessionStorage.clear();
+  sessionStorage.SpandanSessionValue=userId;
 }
 
 function checkFirebaseData(){

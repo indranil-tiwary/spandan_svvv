@@ -109,15 +109,14 @@
 				<form>
 					<input id="uid" style="display:none" type="hidden" name="userid"/>
 					<input id="urlpic" style="display:none" type="hidden" name="urlpic"/>
-					<input id="spid" style="display:none" type="hidden" name="spandaId"/>
 				</form>
-				<form id="nl-form" class="nl-form ">
+				<form id="SpandanMain"  class="nl-form ">
 					Name:
 					<input id="name" type="text" name="name" required placeholder="Your Name" data-subline="Enter your Name"/><br>
 					Email:
-					<input id="email" type="text" name="email1" required placeholder="Your Email" data-subline="Enter your email address"/><br>
+					<input id="email" type="text" name="email" required placeholder="Your Email" data-subline="Enter your email address"/><br>
 					Mobile No.:
-					<input id="mobile" type="tel" name="phone" required placeholder="Your Phone Number" data-subline="Enter your phone number"/><br>
+					<input id="mobile" type="text" name="phone" required placeholder="Your Phone Number" data-subline="Enter your phone number"/><br>
 					College:
 					<input id="college" type="text" name="college" placeholder="Your College Name" data-subline="Enter your College Name"/><br>
 					City:
@@ -134,13 +133,12 @@
 					<input id="branch" type="text" name="branch" placeholder="Your Branch Name" data-subline="Enter your branch"/><br>
 					Degree:
 					<input id="degree" type="text" name="course" placeholder="Your Degree Name" data-subline="Enter your degree name"/><br>
-
-					<div class="nl-submit-wrap">
-						<button class="nl-submit btn-effect" type="submit" id="submit_spandan">Submit</button>
-					</div>
 					<div id="result"></div>
 					<div class="nl-overlay"></div>
 				</form>
+				<div class="nl-submit-wrap">
+					<button class="nl-submit btn-effect" type="submit" id="submit_spandan">Submit</button>
+				</div>
 
 					<div class="md-modal md-effect-9" id="modal-10">
 					<div class="md-content padding-none">
@@ -262,8 +260,6 @@
 		<script type="text/javascript" src="assets/js/classie.js" ></script>
 		<script type="text/javascript" src="assets/js/modalEffects.js" ></script>
 
-	    <script type="text/javascript" src="assets/js/nlform.js" ></script>
-		<script>var nlform = new NLForm( document.getElementById( 'nl-form' ) );</script>
         <script type="text/javascript" src="assets/js/bootstrap.min.js" ></script>
 
 		<!-- TEAM SLIDER  -->
@@ -280,8 +276,6 @@
 		<!-- NICE SCROLL  -->
 		<script type="text/javascript" src="assets/js/jquery.nicescroll.js"></script>
 
-		<!-- SUBSCRIPTION FORM  -->
-		<script type="text/javascript" src="assets/js/notifyMe.js"></script>
 
 		<script type="text/javascript" src="assets/js/jquery.placeholder.js"></script>
 

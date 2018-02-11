@@ -65,6 +65,7 @@ function checkFirebaseData(){
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
       if (initialSS==childData['fbid']){
+
         var uid=childData['fbid'];
         var urlpic=childData['profile_picture'];
         var name=childData['username'];
@@ -73,14 +74,11 @@ function checkFirebaseData(){
         sessionStorage.SpandanSessionValue=uid;
         window.location.href = "dashboard.html";
       }
-      else{
-        console.log("form pe ja")
-        sessionStorage.tokenEdit=true;
-        window.location.href = "form.html";
-      }
    });
  });
-
+ console.log("form pe ja")
+ sessionStorage.tokenEdit=true;
+ window.location.href = "form.html";
 }
 
 // Initialize Firebase
