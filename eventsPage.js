@@ -30,20 +30,39 @@ else{
 }
 
 function writeUserEventData(eventFBName){
+  console.log("writingData");
+  SPevents.push(eventFBName);
   firebase.database().ref('events/' + eventFBName+'/'+initialSS).update({
     spid:spandanId
   });
   firebase.database().ref('users/' + initialSS).update({
-    events: SPevents+","+eventFBName
+    events: SPevents
   });
+  userFeedback();
 }
-function myMain(){
-  jQuery("#modal-3").removeClass("md-show");
+
+function userFeedback(){
+  var arrayLength = SPevents.length;
+  for (var i = 0; i < arrayLength; i++) {
+    eventCompleted(SPevents[i]);
+    }
+}
+var changerVar='<a onclick="" class="learn-more-btn btn-effect wow animated fadeIn" data-wow-duration="0.5s" data-wow-delay="1.5s">Registered<i class="fa fa-check"></i></a>';
+function eventCompleted(marker){
+  if(marker=="taal"){
+    document.getElementById("event-1").innerHTML=changerVar;
+  }
+  else if (marker=="swaranjali") {
+    document.getElementById("event-2").innerHTML=changerVar;
+  }
+  else if (marker=="ambriti") {
+    document.getElementById("event-3").innerHTML=changerVar;
+  }
 }
 
 function readFirebaseData(){
   var leadsRef = database.ref('users');
-  leadsRef.on('value', function(snapshot) {
+  leadsRef.once('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
       if (initialSS==childData['fbid']){
@@ -51,7 +70,7 @@ function readFirebaseData(){
         SPevents=childData['events'];
       }
    });
- });
+ },function(error){console.log(error);});
 }
 
 function firebasekaAuth(){
@@ -152,3 +171,7 @@ firebase.initializeApp(config);
    var spandanId;
    var initialSS;
    var SPevents;
+   initialSS=sessionStorage.SpandanSessionValue;
+   readFirebaseData();
+   setTimeout(function() {
+    userFeedback();}, 5000);
