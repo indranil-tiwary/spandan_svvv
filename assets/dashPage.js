@@ -180,7 +180,7 @@ function unregWork(){
     else if (SPws[i]=="finearts") {
       replaceName="Fine Arts";
     }
-    jQuery("#listWorkshops").append('<li><h2 style="padding-bottom:10px;">'+replaceName+'</h2><input type="checkbox" style="width: 20px;height: 20px;cursor: pointer;" class="workCheck" value="'+SPws[i]+'"></li>');
+    jQuery("#listWorkshops").append('<li><h2 style="padding-bottom:10px;">'+replaceName+'<input type="checkbox" style="width: 20px;height: 20px;cursor: pointer;margin-left: 10px;" class="workCheck" value="'+SPws[i]+'"></h2></li>');
   }
   document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="confirmedUnregWork();" class="learn-more-btn btn-effect wow animated fadeIn">Confirm Unregister</a>';
 }
