@@ -136,6 +136,4 @@ firebase.initializeApp(config);
    checkerBoi();
    $( document ).ready(function() {
     console.log( "ready!" );
-
-    //$("#listDiv ul").append('<li><h1>Swaranjali</h1></li>');
   });
