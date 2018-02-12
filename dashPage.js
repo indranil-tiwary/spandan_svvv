@@ -4,24 +4,12 @@ function checkerBoi(){
   if(sessionStorage.SpandanSessionValue){
     console.log("session h yaha"+sessionStorage.SpandanSessionValue);
     initialSS=sessionStorage.SpandanSessionValue;
-    firebasekaAuth();
     checkFirebaseData();
   }
   else{
     dashChange();
-    console.log("no value found");
     fb_login();
   }
-}
-
-function functionHimank() {
-  console.log("mai chalala555");
-  var ul = document.getElementById("listEvent");
-  var li = document.createElement("li");
-  li.appendChild(document.createTextNode("Four"));
-  li.setAttribute("id", "element4"); // added line
-  ul.appendChild(li);
-  console.log("mai chalala");
 }
 
 function dashChange(){
@@ -35,6 +23,12 @@ function updateDisplay(urlpic, name, spid, email){
   document.getElementById("changeName").innerHTML = name;
   document.getElementById("changeSPId").innerHTML = "SPID-"+spid;
   document.getElementById("changeEmail").innerHTML = email;
+
+  var arrayLength = SPevents.length;
+  for (var i = 0; i < arrayLength; i++) {
+    //eventCompleted(SPevents[i]);
+    jQuery("#listDiv ul").append('<li><h1>'+SPevents[i]+'</h1></li>');
+    }
 }
 
 function checkFirebaseData(){
@@ -44,14 +38,15 @@ function checkFirebaseData(){
       var childData = childSnapshot.val();
       if (initialSS==childData['fbid']){
         sessionStorage.SpandanSessionValue=childData['fbid'];
-        var spid=childData['spid'];
+        spandanId=childData['spid'];
         var urlpic=childData['profile_picture'];
         var name=childData['username'];
         var email=childData['email'];
-        updateDisplay(urlpic, name, spid, email);
+        SPevents=childData['events'];
+        updateDisplay(urlpic, name, spandanId, email);
       }
    });
- });
+ },function(error){console.log(error);});
 }
 
 function firebasekaAuth(){
@@ -59,14 +54,12 @@ function firebasekaAuth(){
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
-    // ...
   });
 }
 
 function fb_login(){
      FB.login( function(response) {checkLoginState();}, { scope: 'public_profile,email' } );
  }
-
 function checkLoginState() {
  FB.getLoginStatus(function(response) {
    statusChangeCallback(response);
@@ -99,7 +92,7 @@ function facebookMain() {
       var uid=response.id;
       initialSS=uid;
       checkFirebaseData();
-      checkerSession();
+      setTimeout(function() {checkerSession();}, 3000);
     });
 }
 
@@ -139,4 +132,10 @@ firebase.initializeApp(config);
    var database = firebase.database();
    var spandanId;
    var initialSS;
-checkerBoi();
+   var SPevents;
+   checkerBoi();
+   $( document ).ready(function() {
+    console.log( "ready!" );
+
+    //$("#listDiv ul").append('<li><h1>Swaranjali</h1></li>');
+  });

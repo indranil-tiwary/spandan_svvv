@@ -71,7 +71,7 @@ function facebookMain() {
       console.log('Successful login for: ' + response.name);
       initialSS=response.id;
       checkFirebaseData();
-      checkerSession();
+      setTimeout(function() {checkerSession();}, 3000);
     });
 }
 
