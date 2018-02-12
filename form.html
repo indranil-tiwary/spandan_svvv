@@ -119,9 +119,9 @@
 					Mobile No.:
 					<input id="mobile" type="text" name="phone" required placeholder="Your Phone Number" data-subline="Enter your phone number"/><br>
 					College:
-					<input id="college" type="text" name="college" placeholder="Your College Name" data-subline="Enter your College Name"/><br>
+					<input id="college" type="text" name="college" required placeholder="Your College Name" data-subline="Enter your College Name"/><br>
 					City:
-					<input id="city" type="text" name="city" placeholder="Your City" data-subline="Enter your city name"/><br>
+					<input id="city" type="text" name="city" required placeholder="Your City" data-subline="Enter your city name"/><br>
 					Year of study:
 					<select id="year">
 						<option value="1" selected>First</option>
@@ -131,15 +131,15 @@
 						<option value="5">Fifth</option>
 					</select> <br>
 					Branch of study:
-					<input id="branch" type="text" name="branch" placeholder="Your Branch Name" data-subline="Enter your branch"/><br>
+					<input id="branch" type="text" name="branch" required placeholder="Your Branch Name" data-subline="Enter your branch"/><br>
 					Degree:
-					<input id="degree" type="text" name="course" placeholder="Your Degree Name" data-subline="Enter your degree name"/><br>
+					<input id="degree" type="text" name="course" required placeholder="Your Degree Name" data-subline="Enter your degree name"/><br>
 					<div id="result"></div>
 					<div class="nl-overlay"></div>
-				</form>
-				<div class="nl-submit-wrap">
-					<button class="nl-submit btn-effect" type="submit" id="submit_spandan">Submit</button>
-				</div>
+					</form>
+
+					<button class="nl-submit btn-effect" style="font-weight: 600;letter-spacing: 0.2em;padding: 12px;position: relative;text-transform: uppercase;width: 200px;" type="submit" id="submit_spandan">Submit</button>
+					<br>
 
 					<div class="md-modal md-effect-9" id="modal-10">
 					<div class="md-content padding-none">
@@ -158,6 +158,7 @@
 						</div>
 					</div>
 				</div>
+				<br>
 				<div class="col-md-12 tc">Please read the<button class="md-trigger" data-modal="modal-10">Terms & Conditions</button>carefully.</div>
 				<!-- the overlay element -->
 				<div class="md-overlay"></div>

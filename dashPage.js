@@ -2,7 +2,6 @@
 function checkerBoi(){
 
   if(sessionStorage.SpandanSessionValue){
-    console.log("session h yaha"+sessionStorage.SpandanSessionValue);
     initialSS=sessionStorage.SpandanSessionValue;
     checkFirebaseData();
   }
@@ -14,6 +13,11 @@ function checkerBoi(){
 
 function dashChange(){
   document.getElementById("mainChange").innerHTML = '<a class="fb" href="#" onclick="fb_login();"><i class="fa fa-facebook"></i><h1>connect via facebook</h1></a>';
+}
+
+function editProfileFun(){
+  sessionStorage.editProfile=true;
+  window.location.href="form.html";
 }
 
 function updateEventList(){
@@ -81,14 +85,19 @@ function updateEventList(){
   }
 }
 
-function updateDisplay(urlpic, name, spid, email){
-  document.getElementById("mainChange").innerHTML = '<img id="changeImg" style="width:20vh;" src="" class="img-circle" alt="spandan profile"><h1 id="changeName">Your Name</h1><h2 style="color:#fff" id="changeSPId">SPID-here</h2><h2 style="color:#fff;font-weight:400;" id="changeEmail">your email</h2><a href="#" class="learn-more-btn btn-effect wow animated fadeIn">Edit Profile</a>';
-  console.log("change wala");
+function updateDisplay(urlpic, name, spid, email, college, city){
+  document.getElementById("mainChange").innerHTML = '<img id="changeImg" style="width:20vh;" \
+  src="" class="img-circle" alt="spandan profile pic">\
+  <h1 style="padding-top:10px;text-transform: uppercase;" id="changeName">Your Name</h1>\
+  <h2 style="color:#fff" id="changeSPId">SPID-here</h2>\
+  <h2 style="color:#fff;font-weight:400;text-transform: lowercase;letter-spacing: 1px;" id="changeEmail">your email</h2>\
+  <h2 style="color:#fff;font-weight:400;text-transform: capitalize;letter-spacing: 1px;" id="changeColl">your college</h2>\
+  <a href="#" onclick="editProfileFun();" class="learn-more-btn btn-effect wow animated fadeIn">Edit Profile</a>';
   document.getElementById("changeImg").src = urlpic;
   document.getElementById("changeName").innerHTML = name;
   document.getElementById("changeSPId").innerHTML = "SPID-"+spid;
   document.getElementById("changeEmail").innerHTML = email;
-
+  document.getElementById("changeColl").innerHTML = college+', '+city;
 }
 
 function checkFirebaseData(){
@@ -100,10 +109,8 @@ function checkFirebaseData(){
         sessionStorage.SpandanSessionValue=childData['fbid'];
         spandanId=childData['spid'];
         var urlpic=childData['profile_picture'];
-        var name=childData['username'];
-        var email=childData['email'];
         SPevents=childData['events'];
-        updateDisplay(urlpic, name, spandanId, email);
+        updateDisplay(urlpic, childData['username'], spandanId, childData['email'], childData['college'], childData['city']);
         updateEventList();
       }
    });
