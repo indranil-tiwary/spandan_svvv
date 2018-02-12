@@ -152,6 +152,70 @@ function checkFirebaseData(){
  },function(error){console.log(error);});
 }
 
+function unregWork(){
+  var arrayLength = SPws.length;
+  var replaceName="";
+  if(arrayLength==0){
+      replaceName="NO WORKSHOP REGISTERED";
+      jQuery("#listWorkshops").append('<li><h2>'+replaceName+'</h2></li>');
+  }
+  else{
+    document.getElementById("listWorkshops").innerHTML ="";
+  for (var i = 0; i < arrayLength; i++) {
+    if(SPws[i]=="culinary"){
+      replaceName="Culinary Arts";
+    }
+    else if (SPws[i]=="skateboarding") {
+      replaceName="Skateboarding";
+    }
+    else if (SPws[i]=="blogging") {
+      replaceName="Blogging/Vlogging";
+    }
+    else if (SPws[i]=="photography") {
+      replaceName="Photography";
+    }
+    else if (SPws[i]=="filmtv") {
+      replaceName="Film/TV/Play Writing ";
+    }
+    else if (SPws[i]=="finearts") {
+      replaceName="Fine Arts";
+    }
+    jQuery("#listWorkshops").append('<li><h2 style="padding-bottom:10px;">'+replaceName+'</h2><input type="checkbox" style="width: 20px;height: 20px;cursor: pointer;" class="workCheck" value="'+SPws[i]+'"></li>');
+  }
+  document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="confirmedUnregWork();" class="learn-more-btn btn-effect wow animated fadeIn">Confirm Unregister</a>';
+}
+}
+
+function confirmedUnregWork(){
+  var checks = document.getElementsByClassName('workCheck');
+  for ( i = 0; i < checks.length; i++) {
+    if ( checks[i].checked === true ) {
+        removeWorkshop(checks[i].value);
+      }
+    }
+}
+
+function removeWorkshop(wName){
+  var leadsRef = database.ref('users');
+  leadsRef.once('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      if (initialSS==childData['fbid']){
+        SPws=childData['workshop'];
+        var index = SPws.indexOf(wName);
+        if (index !== -1){ SPws.splice(index, 1);}
+        if(SPws.length==0){SPws="";}
+        database.ref('users/' + initialSS).update({workshop: SPws});
+        updateWorkshopList();
+      }
+   });
+ },function(error){console.log(error);});
+ database.ref('workshops/'+wName+'/'+initialSS).remove();
+ document.getElementById("listWorkshops").innerHTML ="";
+ document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="unregWork();" class="learn-more-btn btn-effect wow animated fadeIn">Unregister Workshops?</a>';
+
+}
+
 function firebasekaAuth(){
   firebase.auth().signInAnonymously().catch(function(error) {
     // Handle Errors here.
