@@ -26,6 +26,7 @@ function updateEventList(){
   if(arrayLength==0){
       replaceName="NO EVENTS REGISTERED";
       jQuery("#listEvents").append('<li><h2>'+replaceName+'</h2></li>');
+      document.getElementById("butUnregEvent").innerHTML ='';
   }
   for (var i = 0; i < arrayLength; i++) {
     if(SPevents[i]=="taal"){
@@ -94,6 +95,7 @@ function updateWorkshopList(){
   if(arrayLength==0){
       replaceName="NO WORKSHOP REGISTERED";
       jQuery("#listWorkshops").append('<li><h2>'+replaceName+'</h2></li>');
+      document.getElementById("butUnregWorkshop").innerHTML ='';
   }
   for (var i = 0; i < arrayLength; i++) {
     if(SPws[i]=="culinary"){
@@ -168,13 +170,114 @@ function logoutMain(){
       window.location.href="index.html";
       }
    }
+}
 
+function unregEvent(){
+  var arrayLength = SPevents.length;
+  var replaceName="";
+  if(arrayLength==0){
+      document.getElementById("listEvents").innerHTML ="";
+      replaceName="NO EVENT REGISTERED";
+      jQuery("#listEvents").append('<li><h2>'+replaceName+'</h2></li>');
+  }
+  else{
+    document.getElementById("listEvents").innerHTML ="";
+  for (var i = 0; i < arrayLength; i++) {
+    if(SPevents[i]=="taal"){
+      replaceName="Taal - The Dance Battle";
+    }
+    else if (SPevents[i]=="swaranjali") {
+      replaceName="Swaranjali - The Singing Face-off";
+    }
+    else if (SPevents[i]=="ambriti") {
+      replaceName="Ambriti - The Fashion Show";
+    }
+    else if (SPevents[i]=="navyata") {
+      replaceName="Navyata - Best Out Of Waste";
+    }
+    else if (SPevents[i]=="mime") {
+      replaceName="Mime & Nukkad Naatak";
+    }
+    else if (SPevents[i]=="kavyanjali") {
+      replaceName="Kavyanjali - Poetry Competition";
+    }
+    else if (SPevents[i]=="firelesscooking") {
+      replaceName="Fireless Cooking";
+    }
+    else if (SPevents[i]=="doodle") {
+      replaceName="Doodle & Graffiti";
+    }
+    else if (SPevents[i]=="rj") {
+      replaceName="Radio Jockeying";
+    }
+    else if (SPevents[i]=="kandal") {
+      replaceName="Kandal - Collage Making";
+    }
+    else if (SPevents[i]=="facepaint") {
+      replaceName="Ukti - Face Painting";
+    }
+    else if (SPevents[i]=="rachnakriti") {
+      replaceName="Rachnakriti - Card Making";
+    }
+    else if (SPevents[i]=="chitrang") {
+      replaceName="Chitrang - Rangoli Making";
+    }
+    else if (SPevents[i]=="blog") {
+      replaceName="Bloggin/Vlogging";
+    }
+    else if (SPevents[i]=="editor") {
+      replaceName="The Editor - Make Your Own Magazine";
+    }
+    else if (SPevents[i]=="finearts") {
+      replaceName="Fine Arts Marathon";
+    }
+    else if (SPevents[i]=="shortfilm") {
+      replaceName="Short Film/Documentary Filmmaking";
+    }
+    else if (SPevents[i]=="mrmsspandan") {
+      replaceName="Mr. & Ms. Spandan";
+    }
+    else if (SPevents[i]=="treasurehunt") {
+      replaceName="Treasure Hunt";
+    }
+    jQuery("#listEvents").append('<li><h2 style="padding-bottom:10px;">'+replaceName+'<input type="checkbox" style="width: 20px;height: 20px;cursor: pointer;margin-left: 10px;" class="eventCheck" value="'+SPevents[i]+'"></h2></li>');
+  }
+  document.getElementById("butUnregEvent").innerHTML ='<a href="#/" onclick="confirmedUnregEvent();" class="learn-more-btn btn-effect wow animated fadeIn">Confirm Unregister?</a>';
+}
+}
+function confirmedUnregEvent(){
+  var checks = document.getElementsByClassName('eventCheck');
+  for ( i = 0; i < checks.length; i++) {
+    if ( checks[i].checked === true ) {
+        removeEvent(checks[i].value);
+      }
+    }
+}
+function removeEvent(eName){
+  var leadsRef = database.ref('users');
+  leadsRef.once('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      if (initialSS==childData['fbid']){
+        SPevents=childData['events'];
+        var index = SPevents.indexOf(eName);
+        if (index !== -1){ SPevents.splice(index, 1);}
+        if(SPevents.length==0){SPevents="";}
+        database.ref('users/' + initialSS).update({events: SPevents});
+        updateEventList();
+      }
+   });
+ },function(error){console.log(error);});
+ database.ref('events/'+eName+'/'+initialSS).remove();
+ document.getElementById("listEvents").innerHTML ="";
+ document.getElementById("butUnregEvent").innerHTML ='<a href="#/" onclick="unregEvent();" class="learn-more-btn btn-effect wow animated fadeIn">Unregister Event?</a>';
 }
 
 function unregWork(){
   var arrayLength = SPws.length;
   var replaceName="";
   if(arrayLength==0){
+      document.getElementById("listWorkshops").innerHTML ="";
       replaceName="NO WORKSHOP REGISTERED";
       jQuery("#listWorkshops").append('<li><h2>'+replaceName+'</h2></li>');
   }
@@ -201,7 +304,7 @@ function unregWork(){
     }
     jQuery("#listWorkshops").append('<li><h2 style="padding-bottom:10px;">'+replaceName+'<input type="checkbox" style="width: 20px;height: 20px;cursor: pointer;margin-left: 10px;" class="workCheck" value="'+SPws[i]+'"></h2></li>');
   }
-  document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="confirmedUnregWork();" class="learn-more-btn btn-effect wow animated fadeIn">Confirm Unregister</a>';
+  document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="confirmedUnregWork();" class="learn-more-btn btn-effect wow animated fadeIn">Confirm Unregister?</a>';
 }
 }
 
@@ -230,9 +333,8 @@ function removeWorkshop(wName){
  },function(error){console.log(error);});
  database.ref('workshops/'+wName+'/'+initialSS).remove();
  document.getElementById("listWorkshops").innerHTML ="";
- document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="unregWork();" class="learn-more-btn btn-effect wow animated fadeIn">Unregister Workshops?</a>';
+ document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="unregWork();" class="learn-more-btn btn-effect wow animated fadeIn">Unregister Workshop?</a>';
 }
-
 function firebasekaAuth(){
   firebase.auth().signInAnonymously().catch(function(error) {
     // Handle Errors here.
