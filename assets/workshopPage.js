@@ -134,6 +134,7 @@ function checkFirebaseData(){
         window.location.href = "workshop.html";
       }
    });
+   checkerSession();
  });
 }
 function checkerSession(){
@@ -150,7 +151,6 @@ function facebookMain() {
       var uid=response.id;
       initialSS=uid;
       checkFirebaseData();
-      setTimeout(function() {checkerSession();}, 3000);
     });
 }
 

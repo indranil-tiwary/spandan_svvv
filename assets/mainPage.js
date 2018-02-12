@@ -47,7 +47,8 @@ function checkFirebaseData(){
         window.location.href = "dashboard.html";
       }
    });
- }, function(error){console.log(error);});
+ checkerSession();
+}, function(error){console.log(error);});
 }
 
 
@@ -64,7 +65,6 @@ function facebookMain() {
     function(response) {
       initialSS=response.id;
       checkFirebaseData();
-      setTimeout(function() {checkerSession();}, 3000);
     });
 }
 

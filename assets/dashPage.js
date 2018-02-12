@@ -149,6 +149,7 @@ function checkFirebaseData(){
         updateWorkshopList();
       }
    });
+   checkerSession();
  },function(error){console.log(error);});
 }
 
@@ -270,10 +271,8 @@ function facebookMain() {
       var uid=response.id;
       initialSS=uid;
       checkFirebaseData();
-      setTimeout(function() {checkerSession();}, 3000);
     });
 }
-
 
 // Initialize Firebase
 var config = {

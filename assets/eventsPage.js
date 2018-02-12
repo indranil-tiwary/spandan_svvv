@@ -241,26 +241,23 @@ function checkFirebaseData(){
         window.location.href = "events.html";
       }
    });
+   checkerSession();
  });
 }
 function checkerSession(){
   if(sessionStorage.SpandanSessionValue){}
   else{
-     console.log("form pe ja");
      sessionStorage.tokenEdit=true;
      window.location.href = "form.html";
   }
 }
 
 function facebookMain() {
-    console.log('Welcome!  Fetching your information.... ');
     FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
     function(response) {
-      console.log('Successful login for: ' + response.name);
       var uid=response.id;
       initialSS=uid;
       checkFirebaseData();
-      setTimeout(function() {checkerSession();}, 3000);
     });
 }
 
@@ -302,4 +299,3 @@ firebase.initializeApp(config);
    var SPevents;
    initialSS=sessionStorage.SpandanSessionValue;
    readFirebaseData();
-   
