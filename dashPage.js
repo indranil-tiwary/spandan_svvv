@@ -16,19 +16,79 @@ function dashChange(){
   document.getElementById("mainChange").innerHTML = '<a class="fb" href="#" onclick="fb_login();"><i class="fa fa-facebook"></i><h1>connect via facebook</h1></a>';
 }
 
+function updateEventList(){
+  var arrayLength = SPevents.length;
+  var replaceName="";
+  for (var i = 0; i < arrayLength; i++) {
+    if(SPevents[i]=="taal"){
+      replaceName="Taal - The Dance Competition";
+    }
+    else if (SPevents[i]=="swaranjali") {
+      replaceName="Swaranjali - The Singing Competition";
+    }
+    else if (SPevents[i]=="ambriti") {
+      replaceName="Ambriti - The Fashion Show";
+    }
+    else if (SPevents[i]=="navyata") {
+      replaceName="Navyata - Best Out Of Waste";
+    }
+    else if (SPevents[i]=="mime") {
+      replaceName="Mime & Nukkad Naatak";
+    }
+    else if (SPevents[i]=="kavyanjali") {
+      replaceName="Kavyanjali - Poetry Competition";
+    }
+    else if (SPevents[i]=="firelesscooking") {
+      replaceName="Fireless Cooking";
+    }
+    else if (SPevents[i]=="doodle") {
+      replaceName="Doodle & Graffiti";
+    }
+    else if (SPevents[i]=="rj") {
+      replaceName="Radio Jockeying";
+    }
+    else if (SPevents[i]=="kandal") {
+      replaceName="Kandal - Collage Making";
+    }
+    else if (SPevents[i]=="facepaint") {
+      replaceName="Ukti - Face Painting";
+    }
+    else if (SPevents[i]=="rachnakriti") {
+      replaceName="Rachnakriti - Card Making";
+    }
+    else if (SPevents[i]=="chitrang") {
+      replaceName="Chitrang - Rangoli Making";
+    }
+    else if (SPevents[i]=="blog") {
+      replaceName="Bloggin/Vlogging";
+    }
+    else if (SPevents[i]=="editor") {
+      replaceName="The Editor - Make Your Own Magazine";
+    }
+    else if (SPevents[i]=="finearts") {
+      replaceName="Fine Arts Marathon";
+    }
+    else if (SPevents[i]=="shortfilm") {
+      replaceName="Short Film/Documentary Filmmaking";
+    }
+    else if (SPevents[i]=="mrmsspandan") {
+      replaceName="Mr. & Ms. Spandan";
+    }
+    else if (SPevents[i]=="treasurehunt") {
+      replaceName="Treasure Hunt";
+    }
+    jQuery("#listEvents").append('<li><h1>'+replaceName+'</h1></li>');
+  }
+}
+
 function updateDisplay(urlpic, name, spid, email){
-  document.getElementById("mainChange").innerHTML = '<img id="changeImg" style="width:20vh;" src="" class="img-circle" alt="spandan profile"><h1 id="changeName">Aakash Mehta</h1><h2 id="changeSPId">SP-0018101</h2><h2 id="changeEmail">abcd</h2><a href="#" class="learn-more-btn btn-effect wow animated fadeIn">Edit Profile</a>';
+  document.getElementById("mainChange").innerHTML = '<img id="changeImg" style="width:20vh;" src="" class="img-circle" alt="spandan profile"><h1 id="changeName">Your Name</h1><h2 style="color:#fff" id="changeSPId">SPID-here</h2><h2 style="color:#fff;font-weight:400;" id="changeEmail">your email</h2><a href="#" class="learn-more-btn btn-effect wow animated fadeIn">Edit Profile</a>';
   console.log("change wala");
   document.getElementById("changeImg").src = urlpic;
   document.getElementById("changeName").innerHTML = name;
   document.getElementById("changeSPId").innerHTML = "SPID-"+spid;
   document.getElementById("changeEmail").innerHTML = email;
 
-  var arrayLength = SPevents.length;
-  for (var i = 0; i < arrayLength; i++) {
-    //eventCompleted(SPevents[i]);
-    jQuery("#listDiv ul").append('<li><h1>'+SPevents[i]+'</h1></li>');
-    }
 }
 
 function checkFirebaseData(){
@@ -44,6 +104,7 @@ function checkFirebaseData(){
         var email=childData['email'];
         SPevents=childData['events'];
         updateDisplay(urlpic, name, spandanId, email);
+        updateEventList();
       }
    });
  },function(error){console.log(error);});
@@ -134,6 +195,3 @@ firebase.initializeApp(config);
    var initialSS;
    var SPevents;
    checkerBoi();
-   $( document ).ready(function() {
-    console.log( "ready!" );
-  });

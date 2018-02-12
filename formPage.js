@@ -1,3 +1,4 @@
+sessionStorage.tokenEdit=true;
 function checkerBoi(){
   if(sessionStorage.tokenEdit){
     console.log("STAY");
@@ -12,7 +13,6 @@ function firebasekaAuth(){
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
-    // ...
   });
 }
 
