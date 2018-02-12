@@ -14,6 +14,16 @@ function checkerBoi(){
   }
 }
 
+function functionHimank() {
+  console.log("mai chalala555");
+  var ul = document.getElementById("listEvent");
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode("Four"));
+  li.setAttribute("id", "element4"); // added line
+  ul.appendChild(li);
+  console.log("mai chalala");
+}
+
 function dashChange(){
   document.getElementById("mainChange").innerHTML = '<a class="fb" href="#" onclick="fb_login();"><i class="fa fa-facebook"></i><h1>connect via facebook</h1></a>';
 }
