@@ -1,6 +1,7 @@
 function checkerBoi(){
   if(sessionStorage.tokenEdit){
     eventHolder="";
+    wsHolder="";
     checkLoginState();
   }
   else if (sessionStorage.editProfile){
@@ -85,7 +86,8 @@ function writeUserData(userId, imageUrl, name, email, mobile, college, city, yea
     year: year,
     branch: branch,
     degree: degree,
-    events: eventHolder
+    events: eventHolder,
+    workshop: wsHolder
   });
   if(sessionStorage.tokenEdit){
   firebase.database().ref('spandanid/').update({
@@ -116,6 +118,7 @@ function checkFirebaseData(){
       if (initialSS==childData['fbid']){
         spandanId=childData['spid'];
         eventHolder=childData['events'];
+        wsHolder=childData['workshop'];
         var uid=childData['fbid'];
         var urlpic=childData['profile_picture'];
         editFormData(uid, urlpic, childData['username'],childData['email'],childData['mobile'],
@@ -162,5 +165,6 @@ window.fbAsyncInit = function() {
    var database = firebase.database();
    var spandanId;
    var eventHolder;
+   var wsHolder;
    var initialSS;
    checkerBoi();
