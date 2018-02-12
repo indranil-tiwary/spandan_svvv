@@ -8,34 +8,44 @@
 
 
 <url>
+  <loc>http://spandan.svvv.edu.in/ca/</loc>
+  <lastmod>2018-02-12T15:39:59+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
   <loc>http://spandan.svvv.edu.in/</loc>
-  <lastmod>2018-02-12T12:44:09+00:00</lastmod>
-  <priority>1.00</priority>
+  <lastmod>2018-02-12T17:03:04+00:00</lastmod>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://spandan.svvv.edu.in/ca/ca_form.html</loc>
+  <lastmod>2018-02-12T15:41:51+00:00</lastmod>
+  <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://spandan.svvv.edu.in/events.html</loc>
-  <lastmod>2018-02-11T22:47:21+00:00</lastmod>
-  <priority>0.80</priority>
+  <lastmod>2018-02-12T17:03:03+00:00</lastmod>
+  <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://spandan.svvv.edu.in/workshop.html</loc>
-  <lastmod>2018-02-11T22:47:22+00:00</lastmod>
-  <priority>0.80</priority>
+  <lastmod>2018-02-12T17:03:07+00:00</lastmod>
+  <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://spandan.svvv.edu.in/pronite.html</loc>
-  <lastmod>2018-02-11T22:47:22+00:00</lastmod>
-  <priority>0.80</priority>
+  <lastmod>2018-02-12T17:03:05+00:00</lastmod>
+  <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://spandan.svvv.edu.in/index.html</loc>
-  <lastmod>2018-02-12T12:44:09+00:00</lastmod>
-  <priority>0.64</priority>
+  <lastmod>2018-02-12T17:03:04+00:00</lastmod>
+  <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://spandan.svvv.edu.in/dashboard.html</loc>
-  <lastmod>2018-02-11T22:47:20+00:00</lastmod>
-  <priority>0.64</priority>
+  <lastmod>2018-02-12T17:03:03+00:00</lastmod>
+  <changefreq>daily</changefreq>
 </url>
 
 

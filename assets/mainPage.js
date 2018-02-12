@@ -2,12 +2,10 @@
 function checkerBoi(){
 
   if(sessionStorage.SpandanSessionValue){
-    console.log("hi>"+sessionStorage.SpandanSessionValue);
     window.location.href = "dashboard.html";
     document.getElementById("profileButton").innerHTML="Profile";
   }
   else{
-    console.log("no value found");
     fb_login();
   }
 }
@@ -28,14 +26,12 @@ function fb_login(){
 function checkLoginState() {
  FB.getLoginStatus(function(response) {
    statusChangeCallback(response);
-   console.log(response);
  });
   function statusChangeCallback(response) {
    if (response.status === 'connected') {
      // Logged into your app and Facebook.
      facebookMain();
       } else {
-        console.log("Please log into Facebook");
         // The person is not logged into your app or we are unable to tell.
       //document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
     }
@@ -47,29 +43,25 @@ function checkFirebaseData(){
   snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
       if (initialSS==childData['fbid']){
-        console.log("dashboard pe ja");
         sessionStorage.SpandanSessionValue=initialSS;
         window.location.href = "dashboard.html";
       }
    });
- }, function(error){console.log("nahi chalaaa"+error);});
+ }, function(error){console.log(error);});
 }
 
 
 function checkerSession(){
   if(sessionStorage.SpandanSessionValue){}
   else{
-     console.log("form pe ja");
      sessionStorage.tokenEdit=true;
      window.location.href = "form.html";
   }
 }
 
 function facebookMain() {
-    console.log('Welcome!  Fetching your information.... ');
     FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
     function(response) {
-      console.log('Successful login for: ' + response.name);
       initialSS=response.id;
       checkFirebaseData();
       setTimeout(function() {checkerSession();}, 3000);

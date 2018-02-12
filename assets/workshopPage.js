@@ -42,7 +42,6 @@ else{
 }
 
 function writeUserEventData(eventFBName){
-  console.log("writingData");
   SPevents.push(eventFBName);
   firebase.database().ref('workshops/' + eventFBName+'/'+initialSS).update({
     spid:spandanId
@@ -112,14 +111,12 @@ function fb_login(){
 function checkLoginState() {
  FB.getLoginStatus(function(response) {
    statusChangeCallback(response);
-   console.log(response);
  });
   function statusChangeCallback(response) {
    if (response.status === 'connected') {
      // Logged into your app and Facebook.
      facebookMain();
       } else {
-        console.log("Please log into Facebook");
         // The person is not logged into your app or we are unable to tell.
       //document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
     }
@@ -142,17 +139,14 @@ function checkFirebaseData(){
 function checkerSession(){
   if(sessionStorage.SpandanSessionValue){}
   else{
-     console.log("form pe ja");
      sessionStorage.tokenEdit=true;
      window.location.href = "form.html";
   }
 }
 
 function facebookMain() {
-    console.log('Welcome!  Fetching your information.... ');
     FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
     function(response) {
-      console.log('Successful login for: ' + response.name);
       var uid=response.id;
       initialSS=uid;
       checkFirebaseData();
