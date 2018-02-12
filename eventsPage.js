@@ -196,6 +196,7 @@ function readFirebaseData(){
         if(SPevents==""){
           SPevents= SPevents.split("");
         }
+        userFeedback();
       }
    });
  },function(error){console.log(error);});
@@ -259,8 +260,7 @@ function facebookMain() {
       var uid=response.id;
       initialSS=uid;
       checkFirebaseData();
-      setTimeout(function() {
-       checkerSession();}, 3000);
+      setTimeout(function() {checkerSession();}, 3000);
     });
 }
 
@@ -302,5 +302,4 @@ firebase.initializeApp(config);
    var SPevents;
    initialSS=sessionStorage.SpandanSessionValue;
    readFirebaseData();
-   setTimeout(function() {
-    userFeedback();}, 5000);
+   
