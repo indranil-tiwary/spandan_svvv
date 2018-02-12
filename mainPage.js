@@ -4,6 +4,7 @@ function checkerBoi(){
   if(sessionStorage.SpandanSessionValue){
     console.log("hi>"+sessionStorage.SpandanSessionValue);
     window.location.href = "dashboard.html";
+    document.getElementById("profileButton").innerHTML="Profile";
   }
   else{
     console.log("no value found");
@@ -111,3 +112,8 @@ firebase.initializeApp(config);
    var database = firebase.database();
    var spandanId;
    var initialSS;
+   $(document).ready(function() {
+     if(sessionStorage.SpandanSessionValue){
+       document.getElementById("profileButton").innerHTML="Profile";
+     }
+  });
