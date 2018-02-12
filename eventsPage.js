@@ -6,22 +6,99 @@ function checkEvent(eName){
     var eventName;
     var eventFBName;
   if(eName==1){
-    var eventName="Taal - The Dance Competition"
     var eventFBName="taal"
     writeUserEventData(eventFBName);
     jQuery("#modal-1").removeClass("md-show");
   }
   else if (eName==2) {
-    var eventName="Swaranjali - The Singing Competition"
     var eventFBName="swaranjali"
     writeUserEventData(eventFBName);
     jQuery("#modal-2").removeClass("md-show");
   }
   else if (eName==3) {
-    var eventName="Ambriti - The Fashion Show"
     var eventFBName="ambriti"
     writeUserEventData(eventFBName);
     jQuery("#modal-3").removeClass("md-show");
+  }
+  else if (eName==4) {
+    var eventFBName="navyata"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-4").removeClass("md-show");
+  }
+  else if (eName==5) {
+    var eventFBName="mime"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-5").removeClass("md-show");
+  }
+  else if (eName==6) {
+    var eventFBName="kavyanjali"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-6").removeClass("md-show");
+  }
+  else if (eName==7) {
+    var eventFBName="firelesscooking"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-7").removeClass("md-show");
+  }
+  else if (eName==8) {
+    var eventFBName="doodle"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-8").removeClass("md-show");
+  }
+  else if (eName==9) {
+    var eventFBName="rj"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-9").removeClass("md-show");
+  }
+  else if (eName==10) {
+    var eventFBName="kandal"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-10").removeClass("md-show");
+  }
+  else if (eName==11) {
+    var eventFBName="facepaint"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-11").removeClass("md-show");
+  }
+  else if (eName==12) {
+    var eventFBName="rachnakriti"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-12").removeClass("md-show");
+  }
+  else if (eName==13) {
+    var eventFBName="chitrang"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-13").removeClass("md-show");
+  }
+  else if (eName==14) {
+    var eventFBName="blog"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-14").removeClass("md-show");
+  }
+  else if (eName==15) {
+    var eventFBName="editor"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-15").removeClass("md-show");
+  }
+  else if (eName==16) {
+    var eventFBName="finearts"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-16").removeClass("md-show");
+  }
+  else if (eName==17) {
+    var eventFBName="shortfilm"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-17").removeClass("md-show");
+  }
+  else if (eName==18) {
+    var eventFBName="mrmsspandan"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-18").removeClass("md-show");
+  }
+  else if (eName==19) {
+    var eventFBName="treasurehunt"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-19").removeClass("md-show");
   }
 }
 else{
@@ -57,6 +134,54 @@ function eventCompleted(marker){
   }
   else if (marker=="ambriti") {
     document.getElementById("event-3").innerHTML=changerVar;
+  }
+  else if (marker=="navyata") {
+    document.getElementById("event-4").innerHTML=changerVar;
+  }
+  else if (marker=="mime") {
+    document.getElementById("event-5").innerHTML=changerVar;
+  }
+  else if (marker=="kavyanjali") {
+    document.getElementById("event-6").innerHTML=changerVar;
+  }
+  else if (marker=="firelesscooking") {
+    document.getElementById("event-7").innerHTML=changerVar;
+  }
+  else if (marker=="doodle") {
+    document.getElementById("event-8").innerHTML=changerVar;
+  }
+  else if (marker=="rj") {
+    document.getElementById("event-9").innerHTML=changerVar;
+  }
+  else if (marker=="kandal") {
+    document.getElementById("event-10").innerHTML=changerVar;
+  }
+  else if (marker=="facepaint") {
+    document.getElementById("event-11").innerHTML=changerVar;
+  }
+  else if (marker=="rachnakriti") {
+    document.getElementById("event-12").innerHTML=changerVar;
+  }
+  else if (marker=="chitrang") {
+    document.getElementById("event-13").innerHTML=changerVar;
+  }
+  else if (marker=="blog") {
+    document.getElementById("event-14").innerHTML=changerVar;
+  }
+  else if (marker=="editor") {
+    document.getElementById("event-15").innerHTML=changerVar;
+  }
+  else if (marker=="finearts") {
+    document.getElementById("event-16").innerHTML=changerVar;
+  }
+  else if (marker=="shortfilm") {
+    document.getElementById("event-17").innerHTML=changerVar;
+  }
+  else if (marker=="mrmsspandan") {
+    document.getElementById("event-18").innerHTML=changerVar;
+  }
+  else if (marker=="treasurehunt") {
+    document.getElementById("event-19").innerHTML=changerVar;
   }
 }
 
