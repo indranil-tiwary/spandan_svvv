@@ -12,10 +12,6 @@ function checkerBoi(){
   }
 }
 
-function functionHimank() {
-
-}
-
 function dashChange(){
   document.getElementById("mainChange").innerHTML = '<a class="fb" href="#" onclick="fb_login();"><i class="fa fa-facebook"></i><h1>connect via facebook</h1></a>';
 }
@@ -31,7 +27,7 @@ function updateDisplay(urlpic, name, spid, email){
   var arrayLength = SPevents.length;
   for (var i = 0; i < arrayLength; i++) {
     //eventCompleted(SPevents[i]);
-    $("#listDiv ul").append('<li><h1>'+SPevents[i]+'</h1></li>');
+    jQuery("#listDiv ul").append('<li><h1>'+SPevents[i]+'</h1></li>');
     }
 }
 
@@ -47,7 +43,7 @@ function checkFirebaseData(){
         var name=childData['username'];
         var email=childData['email'];
         SPevents=childData['events'];
-        updateDisplay(urlpic, name, spid, email);
+        updateDisplay(urlpic, name, spandanId, email);
       }
    });
  },function(error){console.log(error);});
