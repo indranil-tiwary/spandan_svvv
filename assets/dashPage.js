@@ -81,7 +81,7 @@ function updateEventList(){
     else if (SPevents[i]=="treasurehunt") {
       replaceName="Treasure Hunt";
     }
-    jQuery("#listEvents").append('<li><h1>'+replaceName+'</h1></li>');
+    jQuery("#listEvents").append('<li><h2>'+replaceName+'</h2></li>');
   }
 }
 
