@@ -193,6 +193,9 @@ function readFirebaseData(){
       if (initialSS==childData['fbid']){
         spandanId=childData['spid'];
         SPevents=childData['events'];
+        if(SPevents==""){
+          SPevents= SPevents.split("");
+        }
       }
    });
  },function(error){console.log(error);});
@@ -256,7 +259,8 @@ function facebookMain() {
       var uid=response.id;
       initialSS=uid;
       checkFirebaseData();
-      checkerSession();
+      setTimeout(function() {
+       checkerSession();}, 3000);
     });
 }
 
