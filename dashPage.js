@@ -25,10 +25,10 @@ function updateEventList(){
   var replaceName="";
   for (var i = 0; i < arrayLength; i++) {
     if(SPevents[i]=="taal"){
-      replaceName="Taal - The Dance Competition";
+      replaceName="Taal - The Dance Battle";
     }
     else if (SPevents[i]=="swaranjali") {
-      replaceName="Swaranjali - The Singing Competition";
+      replaceName="Swaranjali - The Singing Face-off";
     }
     else if (SPevents[i]=="ambriti") {
       replaceName="Ambriti - The Fashion Show";
