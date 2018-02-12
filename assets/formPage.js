@@ -2,7 +2,6 @@ function checkerBoi(){
   if(sessionStorage.tokenEdit){
     eventHolder="";
     wsHolder="";
-    checkLoginState();
   }
   else if (sessionStorage.editProfile){
     initialSS=sessionStorage.SpandanSessionValue;
@@ -150,6 +149,7 @@ window.fbAsyncInit = function() {
       version    : 'v2.11'
     });
     FB.AppEvents.logPageView();
+    checkLoginState();
   };
 
   (function(d, s, id){

@@ -23,6 +23,10 @@ function editProfileFun(){
 function updateEventList(){
   var arrayLength = SPevents.length;
   var replaceName="";
+  if(arrayLength==0){
+      replaceName="NO EVENTS REGISTERED";
+      jQuery("#listEvents").append('<li><h2>'+replaceName+'</h2></li>');
+  }
   for (var i = 0; i < arrayLength; i++) {
     if(SPevents[i]=="taal"){
       replaceName="Taal - The Dance Battle";
@@ -84,6 +88,35 @@ function updateEventList(){
     jQuery("#listEvents").append('<li><h2>'+replaceName+'</h2></li>');
   }
 }
+function updateWorkshopList(){
+  var arrayLength = SPws.length;
+  var replaceName="";
+  if(arrayLength==0){
+      replaceName="NO WORKSHOP REGISTERED";
+      jQuery("#listWorkshops").append('<li><h2>'+replaceName+'</h2></li>');
+  }
+  for (var i = 0; i < arrayLength; i++) {
+    if(SPws[i]=="culinary"){
+      replaceName="Culinary Arts";
+    }
+    else if (SPws[i]=="skateboarding") {
+      replaceName="Skateboarding";
+    }
+    else if (SPws[i]=="blogging") {
+      replaceName="Blogging/Vlogging";
+    }
+    else if (SPws[i]=="photography") {
+      replaceName="Photography";
+    }
+    else if (SPws[i]=="filmtv") {
+      replaceName="Film/TV/Play Writing ";
+    }
+    else if (SPws[i]=="finearts") {
+      replaceName="Fine Arts";
+    }
+    jQuery("#listWorkshops").append('<li><h2>'+replaceName+'</h2></li>');
+  }
+}
 
 function updateDisplay(urlpic, name, spid, email, college, city){
   document.getElementById("mainChange").innerHTML = '<img id="changeImg" style="width:20vh;" \
@@ -102,7 +135,7 @@ function updateDisplay(urlpic, name, spid, email, college, city){
 
 function checkFirebaseData(){
   var leadsRef = database.ref('users');
-  leadsRef.on('value', function(snapshot) {
+  leadsRef.once('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
       if (initialSS==childData['fbid']){
@@ -110,8 +143,10 @@ function checkFirebaseData(){
         spandanId=childData['spid'];
         var urlpic=childData['profile_picture'];
         SPevents=childData['events'];
+        SPws=childData['workshop'];
         updateDisplay(urlpic, childData['username'], spandanId, childData['email'], childData['college'], childData['city']);
         updateEventList();
+        updateWorkshopList();
       }
    });
  },function(error){console.log(error);});
@@ -201,4 +236,5 @@ firebase.initializeApp(config);
    var spandanId;
    var initialSS;
    var SPevents;
+   var SPws;
    checkerBoi();
