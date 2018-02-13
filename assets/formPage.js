@@ -144,7 +144,9 @@ window.fbAsyncInit = function() {
       version    : 'v2.11'
     });
     FB.AppEvents.logPageView();
+    if(sessionStorage.tokenEdit){
     checkLoginState();
+    }
   };
 
   (function(d, s, id){
