@@ -127,7 +127,7 @@ function updateDisplay(urlpic, name, spid, email, college, city){
   <h2 style="color:#fff" id="changeSPId">SPID-here</h2>\
   <h2 style="color:#fff;font-weight:400;text-transform: lowercase;letter-spacing: 1px;" id="changeEmail">your email</h2>\
   <h2 style="color:#fff;font-weight:400;text-transform: capitalize;letter-spacing: 1px;" id="changeColl">your college</h2>\
-  <a href="#" onclick="editProfileFun();" class="learn-more-btn btn-effect wow animated fadeIn">Edit Profile</a>';
+  <a href="#" onclick="editProfileFun();" class="learn-more-btn btn-effect animated fadeIn">Edit Profile</a>';
   document.getElementById("changeImg").src = urlpic;
   document.getElementById("changeName").innerHTML = name;
   document.getElementById("changeSPId").innerHTML = "SPID-"+spid;
@@ -242,7 +242,7 @@ function unregEvent(){
     }
     jQuery("#listEvents").append('<li><h2 style="padding-bottom:10px;">'+replaceName+'<input type="checkbox" style="width: 20px;height: 20px;cursor: pointer;margin-left: 10px;" class="eventCheck" value="'+SPevents[i]+'"></h2></li>');
   }
-  document.getElementById("butUnregEvent").innerHTML ='<a href="#/" onclick="confirmedUnregEvent();" class="learn-more-btn btn-effect wow animated fadeIn">Confirm Unregister?</a>';
+  document.getElementById("butUnregEvent").innerHTML ='<a href="#/" onclick="confirmedUnregEvent();" class="learn-more-btn btn-effect animated fadeIn">Confirm Unregister?</a>';
 }
 }
 function confirmedUnregEvent(){
@@ -270,7 +270,7 @@ function removeEvent(eName){
  },function(error){console.log(error);});
  database.ref('events/'+eName+'/'+initialSS).remove();
  document.getElementById("listEvents").innerHTML ="";
- document.getElementById("butUnregEvent").innerHTML ='<a href="#/" onclick="unregEvent();" class="learn-more-btn btn-effect wow animated fadeIn">Unregister Event?</a>';
+ document.getElementById("butUnregEvent").innerHTML ='<a href="#/" onclick="unregEvent();" class="learn-more-btn btn-effect animated fadeIn">Unregister Event?</a>';
 }
 
 function unregWork(){
@@ -283,6 +283,7 @@ function unregWork(){
   }
   else{
     document.getElementById("listWorkshops").innerHTML ="";
+    document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="confirmedUnregWork();" class="learn-more-btn btn-effect animated fadeIn">Confirm Unregister?</a>';
   for (var i = 0; i < arrayLength; i++) {
     if(SPws[i]=="culinary"){
       replaceName="Culinary Arts";
@@ -304,7 +305,6 @@ function unregWork(){
     }
     jQuery("#listWorkshops").append('<li><h2 style="padding-bottom:10px;">'+replaceName+'<input type="checkbox" style="width: 20px;height: 20px;cursor: pointer;margin-left: 10px;" class="workCheck" value="'+SPws[i]+'"></h2></li>');
   }
-  document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="confirmedUnregWork();" class="learn-more-btn btn-effect wow animated fadeIn">Confirm Unregister?</a>';
 }
 }
 
@@ -333,7 +333,7 @@ function removeWorkshop(wName){
  },function(error){console.log(error);});
  database.ref('workshops/'+wName+'/'+initialSS).remove();
  document.getElementById("listWorkshops").innerHTML ="";
- document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="unregWork();" class="learn-more-btn btn-effect wow animated fadeIn">Unregister Workshop?</a>';
+ document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="unregWork();" class="learn-more-btn btn-effect animated fadeIn">Unregister Workshop?</a>';
 }
 function firebasekaAuth(){
   firebase.auth().signInAnonymously().catch(function(error) {
