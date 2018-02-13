@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <!--Import Google Icon Font-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!--Import materialize.css-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+     <!--Let browser know website is optimized for mobile-->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   </head>
+
+   <body>
+     <nav>
+       <div class="nav-wrapper">
+         <a href="#!" class="brand-logo"><img src="..\assets\img\logo.png" alt="Spandan 2018"></a>
+         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+         <ul class="right hide-on-med-and-down">
+           <li><a href="#">Home</a></li>
+         </ul>
+         <ul class="side-nav" id="mobile-demo">
+           <li><a href="#">Home</a></li>
+         </ul>
+       </div>
+     </nav>
+     <div class="container">
+        <!-- Page Content goes here -->
+        <div class="row">
+            <div class="col s12 m6">
+              <div class="card">
+                <div class="card-image">
+                  <img src="..\assets\img\glimpses\10.jpg">
+                  <span class="card-title">Taal</span>
+                </div>
+                <div class="card-action">
+                  <a href="taal.html">Entries</a>
+                </div>
+              </div>
+            </div>
+            <div class="col s12 m6">
+              <div class="card">
+                <div class="card-image">
+                  <img src="..\assets\img\glimpses\7.jpg">
+                  <span class="card-title">Swaranjali</span>
+                </div>
+                <div class="card-content">
+                  <p>I am a very simple card. I am good at containing small bits of information.
+                  I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+     <!--Import jQuery before materialize.js-->
+     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+     <script type="text/javascript">
+       $( document ).ready(function(){
+         $(".button-collapse").sideNav();
+       });
+     </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+   </body>
+ </html>
