@@ -1,18 +1,19 @@
 
 function checkerBoi(){
-
   if(sessionStorage.SpandanSessionValue){
     initialSS=sessionStorage.SpandanSessionValue;
     checkFirebaseData();
   }
   else{
     dashChange();
-    fb_login();
+    setTimeout(function(){ fb_login();}, 5000);
   }
 }
 
 function dashChange(){
-  document.getElementById("mainChange").innerHTML = '<a class="fb" href="#" onclick="fb_login();"><i class="fa fa-facebook"></i><h1>connect via facebook</h1></a>';
+  document.getElementById("mainChange").innerHTML = '<a class="fb btn-effect fadeIn align-center" href="#" onclick="fb_login();"><i class="fa fa-facebook fa-lg"></i><h1>connect via facebook</h1></a>';
+  document.getElementById("butUnregEvent").innerHTML ='';
+  document.getElementById("butUnregWorkshop").innerHTML ='';
 }
 
 function editProfileFun(){
@@ -133,6 +134,8 @@ function updateDisplay(urlpic, name, spid, email, college, city){
   document.getElementById("changeSPId").innerHTML = "SPID-"+spid;
   document.getElementById("changeEmail").innerHTML = email;
   document.getElementById("changeColl").innerHTML = college+', '+city;
+  document.getElementById("butUnregEvent").innerHTML ='<a href="#/" onclick="unregEvent();" class="learn-more-btn btn-effect animated fadeIn">Unregister Event?</a>';
+  document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="unregWork();" class="learn-more-btn btn-effect wow animated fadeIn">Unregister Workshop?</a>';
 }
 
 function checkFirebaseData(){
