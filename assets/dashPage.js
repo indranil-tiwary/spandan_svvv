@@ -5,6 +5,7 @@ function checkerBoi(){
     checkFirebaseData();
   }
   else{
+    window.location.href="index.html";
     dashChange();
     setTimeout(function(){ fb_login();}, 5000);
   }
@@ -134,8 +135,6 @@ function updateDisplay(urlpic, name, spid, email, college, city){
   document.getElementById("changeSPId").innerHTML = "SPID-"+spid;
   document.getElementById("changeEmail").innerHTML = email;
   document.getElementById("changeColl").innerHTML = college+', '+city;
-  document.getElementById("butUnregEvent").innerHTML ='<a href="#/" onclick="unregEvent();" class="learn-more-btn btn-effect animated fadeIn">Unregister Event?</a>';
-  document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="unregWork();" class="learn-more-btn btn-effect wow animated fadeIn">Unregister Workshop?</a>';
 }
 
 function checkFirebaseData(){
