@@ -24,7 +24,7 @@ function updateEventList(){
   var arrayLength = SPevents.length;
   var replaceName="";
   if(arrayLength==0){
-      replaceName="NO EVENTS REGISTERED";
+      replaceName="NO EVENT REGISTERED";
       jQuery("#listEvents").append('<li><h2>'+replaceName+'</h2></li>');
       document.getElementById("butUnregEvent").innerHTML ='';
   }
@@ -182,6 +182,7 @@ function unregEvent(){
   }
   else{
     document.getElementById("listEvents").innerHTML ="";
+    document.getElementById("butUnregEvent").innerHTML ='<a href="#/" onclick="confirmedUnregEvent();" class="learn-more-btn btn-effect animated fadeIn">Confirm Unregister?</a>';
   for (var i = 0; i < arrayLength; i++) {
     if(SPevents[i]=="taal"){
       replaceName="Taal - The Dance Battle";
@@ -242,35 +243,40 @@ function unregEvent(){
     }
     jQuery("#listEvents").append('<li><h2 style="padding-bottom:10px;">'+replaceName+'<input type="checkbox" style="width: 20px;height: 20px;cursor: pointer;margin-left: 10px;" class="eventCheck" value="'+SPevents[i]+'"></h2></li>');
   }
-  document.getElementById("butUnregEvent").innerHTML ='<a href="#/" onclick="confirmedUnregEvent();" class="learn-more-btn btn-effect animated fadeIn">Confirm Unregister?</a>';
 }
 }
 function confirmedUnregEvent(){
   var checks = document.getElementsByClassName('eventCheck');
-  for ( i = 0; i < checks.length; i++) {
+  var arrlen=checks.length;
+  var arrPass = new Array();
+  for (var i = 0; i < arrlen; i++) {
     if ( checks[i].checked === true ) {
-        removeEvent(checks[i].value);
+        arrPass.push(checks[i].value);
       }
     }
+    removeEvent(arrPass);
 }
 function removeEvent(eName){
+  var index;
   var leadsRef = database.ref('users');
   leadsRef.once('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
       if (initialSS==childData['fbid']){
         SPevents=childData['events'];
-        var index = SPevents.indexOf(eName);
-        if (index !== -1){ SPevents.splice(index, 1);}
+        for (var i = 0; i < eName.length; i++) {
+          database.ref('events/'+eName[i]+'/'+initialSS).remove();
+          index = SPevents.indexOf(eName[i]);
+          if (index !== -1){ SPevents.splice(index, 1);}
+        }
         if(SPevents.length==0){SPevents="";}
         database.ref('users/' + initialSS).update({events: SPevents});
+        document.getElementById("listEvents").innerHTML ="";
+        document.getElementById("butUnregEvent").innerHTML ='<a href="#/" onclick="unregEvent();" class="learn-more-btn btn-effect animated fadeIn">Unregister Event?</a>';
         updateEventList();
       }
    });
  },function(error){console.log(error);});
- database.ref('events/'+eName+'/'+initialSS).remove();
- document.getElementById("listEvents").innerHTML ="";
- document.getElementById("butUnregEvent").innerHTML ='<a href="#/" onclick="unregEvent();" class="learn-more-btn btn-effect animated fadeIn">Unregister Event?</a>';
 }
 
 function unregWork(){
@@ -310,30 +316,36 @@ function unregWork(){
 
 function confirmedUnregWork(){
   var checks = document.getElementsByClassName('workCheck');
-  for ( i = 0; i < checks.length; i++) {
+  var arrlen=checks.length;
+  var arrPass = new Array();
+  for (var i = 0; i < arrlen; i++) {
     if ( checks[i].checked === true ) {
-        removeWorkshop(checks[i].value);
+        arrPass.push(checks[i].value);
       }
     }
+    removeWorkshop(arrPass);
 }
 function removeWorkshop(wName){
+  var index;
   var leadsRef = database.ref('users');
   leadsRef.once('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
       if (initialSS==childData['fbid']){
         SPws=childData['workshop'];
-        var index = SPws.indexOf(wName);
-        if (index !== -1){ SPws.splice(index, 1);}
+        for (var i = 0; i < wName.length; i++) {
+          database.ref('workshops/'+wName[i]+'/'+initialSS).remove();
+          index = SPws.indexOf(wName[i]);
+          if (index !== -1){ SPws.splice(index, 1);}
+        }
         if(SPws.length==0){SPws="";}
         database.ref('users/' + initialSS).update({workshop: SPws});
+        document.getElementById("listWorkshops").innerHTML ="";
+        document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="unregWork();" class="learn-more-btn btn-effect animated fadeIn">Unregister Workshop?</a>';
         updateWorkshopList();
       }
    });
  },function(error){console.log(error);});
- database.ref('workshops/'+wName+'/'+initialSS).remove();
- document.getElementById("listWorkshops").innerHTML ="";
- document.getElementById("butUnregWorkshop").innerHTML ='<a href="#/" onclick="unregWork();" class="learn-more-btn btn-effect animated fadeIn">Unregister Workshop?</a>';
 }
 function firebasekaAuth(){
   firebase.auth().signInAnonymously().catch(function(error) {

@@ -107,7 +107,6 @@ else{
 }
 
 function writeUserEventData(eventFBName){
-  console.log("writingData");
   SPevents.push(eventFBName);
   firebase.database().ref('events/' + eventFBName+'/'+initialSS).update({
     spid:spandanId
