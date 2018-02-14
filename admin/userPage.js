@@ -2,7 +2,8 @@ var childData;
 var urlpic;
 function checkFirebaseData(){
   var leadsRef = database.ref('users');
-  leadsRef.once('value', function(snapshot) {
+  leadsRef.on('value', function(snapshot) {
+    document.getElementById('userTable').innerHTML='<thead><tr><th>SP-ID</th><th>Name</th><th>Mobile Number</th><th>E Mail</th><th>College Name</th><th>Branch</th><th>Year</th><th>Degree</th></tr></thead>';
     snapshot.forEach(function(childSnapshot) {
         childData = childSnapshot.val();
         urlpic=childData['profile_picture'];
