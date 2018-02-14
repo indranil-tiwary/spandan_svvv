@@ -128,19 +128,20 @@
 					<input id="uid" style="display:none" type="hidden" name="userid"/>
 					<input id="urlpic" style="display:none" type="hidden" name="urlpic"/>
 				</form>
-				<form id="SpandanMain"  class="nl-form ">
+
+				<form id="SpandanMain" onsubmit="return submit_spandan()">
 					Name:
-					<input id="name" type="text" name="name" required placeholder="Your Name" data-subline="Enter your Name"/><br>
+					<input id="name" class="formEdit" type="text" name="name" required placeholder="Your Name" data-subline="Enter your Name"/><br>
 					Email:
-					<input id="email" type="text" name="email" required placeholder="Your Email" data-subline="Enter your email address"/><br>
+					<input id="email" class="formEdit" type="text" name="email" required placeholder="Your Email" data-subline="Enter your email address"/><br>
 					Mobile No.:
-					<input id="mobile" type="text" name="phone" required placeholder="Your Phone Number" data-subline="Enter your phone number"/><br>
+					<input id="mobile" class="formEdit" type="text" name="phone" required placeholder="Your Mobile Number" data-subline="Enter your Mobile Number"/><br>
 					College:
-					<input id="college" type="text" name="college" required placeholder="Your College Name" data-subline="Enter your College Name"/><br>
+					<input id="college" class="formEdit" type="text" name="college" required placeholder="Your College Name" data-subline="Enter your College Name"/><br>
 					City:
-					<input id="city" type="text" name="city" required placeholder="Your City" data-subline="Enter your city name"/><br>
+					<input id="city" class="formEdit" type="text" name="city" required placeholder="Your City" data-subline="Enter your city name"/><br>
 					Year of study:
-					<select id="year">
+					<select id="year" class="formEdit">
 						<option value="1" selected>First</option>
 						<option value="2">Second</option>
 						<option value="3">Third</option>
@@ -148,14 +149,13 @@
 						<option value="5">Fifth</option>
 					</select> <br>
 					Branch of study:
-					<input id="branch" type="text" name="branch" required placeholder="Your Branch Name" data-subline="Enter your branch"/><br>
+					<input id="branch" class="formEdit" type="text" name="branch" required placeholder="Your Branch Name" data-subline="Enter your branch"/><br>
 					Degree:
-					<input id="degree" type="text" name="course" required placeholder="Your Degree Name" data-subline="Enter your degree name"/><br>
+					<input id="degree" class="formEdit" type="text" name="course" required placeholder="Your Degree Name" data-subline="Enter your degree name"/><br>
 					<div id="result"></div>
-					<div class="nl-overlay"></div>
-					</form>
+					<input type="submit" name="" class="learn-more-btn btn-effect wow animated fadeIn" value="Submit" style="font-size:1rem;">
 
-					<button class="nl-submit btn-effect" style="font-weight: 600;letter-spacing: 0.2em;padding: 12px;position: relative;text-transform: uppercase;width: 200px;" type="submit" id="submit_spandan">Submit</button>
+					</form>
 					<br>
 
 					<div class="md-modal md-effect-9" id="modal-10">
