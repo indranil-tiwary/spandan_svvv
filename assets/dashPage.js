@@ -113,7 +113,7 @@ function updateWorkshopList(){
       replaceName="Photography";
     }
     else if (SPws[i]=="filmtv") {
-      replaceName="Film/TV/Play Writing ";
+      replaceName="Film/TV/Play Writing";
     }
     else if (SPws[i]=="finearts") {
       replaceName="Fine Arts";

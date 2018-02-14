@@ -14,7 +14,9 @@ function checkFirebaseData(kyahai,actionName){
   var leadsRef;
   var starRef = firebase.database().ref(kyahai+actionName);
   starRef.on('value', function(snapshot2) {
+  document.getElementById('mainHeading').innerHTML=actionName;
   document.getElementById('userTable').innerHTML='<thead><tr><th>SP-ID</th><th>Name</th><th>Mobile Number</th><th>E Mail</th><th>College Name</th><th>Branch</th><th>Year</th><th>Degree</th></tr></thead>';
+  if(snapshot2.val()==null){document.getElementById('userTable').innerHTML='<h4>No registrations yet!</h4>';}
   snapshot2.forEach(function(childSnapshot) {
       childData1 = childSnapshot.key;
       leadsRef = database.ref('users/'+childData1);

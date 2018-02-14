@@ -1,4 +1,4 @@
-
+function customBoi(){}
 function customEvent(){
   sessionStorage.kyahaiye="events/";
   sessionStorage.EventSP=document.getElementById('eventDrop').value;
