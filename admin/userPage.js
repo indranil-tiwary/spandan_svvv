@@ -1,7 +1,7 @@
 var childData;
 var urlpic;
 function customBoi(){
-  var leadsRef = database.ref('users');
+  var leadsRef = database.ref('users').orderByChild('spid');
   leadsRef.on('value', function(snapshot) {
     document.getElementById('userTable').innerHTML='<thead><tr><th>SP-ID</th><th>Name</th><th>Mobile Number</th><th>E Mail</th><th>College Name</th><th>Branch</th><th>Year</th><th>Degree</th></tr></thead>';
     snapshot.forEach(function(childSnapshot) {
