@@ -1,6 +1,6 @@
 var childData;
 var urlpic;
-function checkFirebaseData(){
+function customBoi(){
   var leadsRef = database.ref('users');
   leadsRef.on('value', function(snapshot) {
     document.getElementById('userTable').innerHTML='<thead><tr><th>SP-ID</th><th>Name</th><th>Mobile Number</th><th>E Mail</th><th>College Name</th><th>Branch</th><th>Year</th><th>Degree</th></tr></thead>';
@@ -20,26 +20,3 @@ function checkFirebaseData(){
    });
  },function(error){console.log(error);});
 }
-
-function firebasekaAuth(){
-  firebase.auth().signInAnonymously().catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  });
-}
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyAiOppk8kOawDGEp5QJ8vk4y5mOFwRKqzU",
-  authDomain: "spandan-3f863.firebaseapp.com",
-  databaseURL: "https://spandan-3f863.firebaseio.com",
-  projectId: "spandan-3f863",
-  storageBucket: "spandan-3f863.appspot.com",
-  messagingSenderId: "285489957582"
-};
-firebase.initializeApp(config);
-firebasekaAuth();
-var database = firebase.database();
-var spandanId;
-var initialSS;
-checkFirebaseData();

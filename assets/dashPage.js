@@ -144,6 +144,7 @@ function checkFirebaseData(){
       var childData = childSnapshot.val();
       if (initialSS==childData['fbid']){
         sessionStorage.SpandanSessionValue=childData['fbid'];
+        sessionStorage.SpandanIDValue=childData['spid'];
         spandanId=childData['spid'];
         var urlpic=childData['profile_picture'];
         SPevents=childData['events'];

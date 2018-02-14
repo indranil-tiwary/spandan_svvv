@@ -1,9 +1,6 @@
-
 function checkerBoi(){
-
   if(sessionStorage.SpandanSessionValue){
     window.location.href = "dashboard.html";
-    document.getElementById("profileButton").innerHTML="Profile";
   }
   else{
     fb_login();
@@ -29,12 +26,9 @@ function checkLoginState() {
  });
   function statusChangeCallback(response) {
    if (response.status === 'connected') {
-     // Logged into your app and Facebook.
      facebookMain();
-      } else {
-        // The person is not logged into your app or we are unable to tell.
-      //document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
     }
+    else {}
   }
 }
 function checkFirebaseData(){
@@ -44,6 +38,7 @@ function checkFirebaseData(){
       var childData = childSnapshot.val();
       if (initialSS==childData['fbid']){
         sessionStorage.SpandanSessionValue=initialSS;
+        sessionStorage.SpandanIDValue=childData['spid'];
         window.location.href = "dashboard.html";
       }
    });
