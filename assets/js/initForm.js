@@ -210,7 +210,6 @@ jQuery( document ).ready(function( $ ) {
 			document.getElementById('branch').value,
 			document.getElementById('degree').value,
 		);
-		window.location.href = "dashboard.html";
 	});
 
 
