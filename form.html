@@ -128,7 +128,8 @@
 					<input id="uid" style="display:none" type="hidden" name="userid"/>
 					<input id="urlpic" style="display:none" type="hidden" name="urlpic"/>
 				</form>
-				<form id="SpandanMain">
+
+				<form id="SpandanMain" onsubmit="return submit_spandan()">
 					Name:
 					<input id="name" class="formEdit" type="text" name="name" required placeholder="Your Name" data-subline="Enter your Name"/><br>
 					Email:
@@ -152,7 +153,7 @@
 					Degree:
 					<input id="degree" class="formEdit" type="text" name="course" required placeholder="Your Degree Name" data-subline="Enter your degree name"/><br>
 					<div id="result"></div>
-					<input type="submit" name="" id="submit_spandan" class="learn-more-btn btn-effect wow animated fadeIn" value="Submit">
+					<input type="submit" name="" class="learn-more-btn btn-effect wow animated fadeIn" value="Submit" style="font-size:1rem;">
 
 					</form>
 					<br>
