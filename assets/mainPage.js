@@ -34,15 +34,15 @@ function checkLoginState() {
 function checkFirebaseData(){
   var lRef = database.ref('users/');
   lRef.once('value', function(snapshot) {
-  snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      if (initialSS==childData['fbid']){
-        sessionStorage.SpandanSessionValue=initialSS;
-        sessionStorage.SpandanIDValue=childData['spid'];
-        window.location.href = "dashboard.html";
+      if(snapshot.hasChild(initialSS)){
+          var childData = snapshot.child(initialSS).val();
+          sessionStorage.SpandanSessionValue=initialSS;
+          sessionStorage.SpandanIDValue=childData['spid'];
+          window.location.href = "dashboard.html";
       }
-   });
- checkerSession();
+      else{
+        checkerSession();
+      }
 }, function(error){console.log(error);});
 }
 

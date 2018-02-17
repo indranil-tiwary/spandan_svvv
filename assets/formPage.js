@@ -120,11 +120,10 @@ function editFormData(uid, urlpic, name, email, mobile,college,city,year,branch,
 }
 
 function checkFirebaseData(){
-  var leadsRef = database.ref('users');
+  var leadsRef = database.ref('users/');
   leadsRef.on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      if (initialSS==childData['fbid']){
+      if (snapshot.hasChild(initialSS)){
+        var childData = snapshot.child(initialSS).val();
         spandanId=childData['spid'];
         eventHolder=childData['events'];
         wsHolder=childData['workshop'];
@@ -134,7 +133,6 @@ function checkFirebaseData(){
                       childData['college'], childData['city'], childData['year'],
                     childData['branch'], childData['degree']);
       }
-   });
  });
 }
 

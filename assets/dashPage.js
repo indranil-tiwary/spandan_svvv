@@ -23,6 +23,7 @@ function editProfileFun(){
 }
 
 function updateEventList(){
+  document.getElementById("listEvents").innerHTML ='';
   var arrayLength = SPevents.length;
   var replaceName="";
   if(arrayLength==0){
@@ -92,6 +93,7 @@ function updateEventList(){
   }
 }
 function updateWorkshopList(){
+  document.getElementById("listWorkshops").innerHTML ='';
   var arrayLength = SPws.length;
   var replaceName="";
   if(arrayLength==0){
@@ -138,11 +140,10 @@ function updateDisplay(urlpic, name, spid, email, college, city){
 }
 
 function checkFirebaseData(){
-  var leadsRef = database.ref('users');
-  leadsRef.once('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      if (initialSS==childData['fbid']){
+  var leadsRef = database.ref('users/');
+  leadsRef.on('value', function(snapshot) {
+      if (snapshot.hasChild(initialSS)){
+        var childData = snapshot.child(initialSS).val();
         sessionStorage.SpandanSessionValue=childData['fbid'];
         sessionStorage.SpandanIDValue=childData['spid'];
         spandanId=childData['spid'];
@@ -153,8 +154,9 @@ function checkFirebaseData(){
         updateEventList();
         updateWorkshopList();
       }
-   });
-   checkerSession();
+      else{
+        checkerSession();
+      }
  },function(error){console.log(error);});
 }
 

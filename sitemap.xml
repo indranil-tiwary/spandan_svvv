@@ -4,49 +4,51 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>http://spandan.svvv.edu.in/ca/</loc>
-  <lastmod>2018-02-12T15:39:59+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
 <url>
   <loc>http://spandan.svvv.edu.in/</loc>
-  <lastmod>2018-02-12T17:03:04+00:00</lastmod>
+  <lastmod>2018-02-14T11:02:27+00:00</lastmod>
   <changefreq>daily</changefreq>
+  <priority>1.00</priority>
 </url>
-<url>
-  <loc>http://spandan.svvv.edu.in/ca/ca_form.html</loc>
-  <lastmod>2018-02-12T15:41:51+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
+
 <url>
   <loc>http://spandan.svvv.edu.in/events.html</loc>
-  <lastmod>2018-02-12T17:03:03+00:00</lastmod>
+  <lastmod>2018-02-14T11:02:25+00:00</lastmod>
   <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
+
 <url>
   <loc>http://spandan.svvv.edu.in/workshop.html</loc>
-  <lastmod>2018-02-12T17:03:07+00:00</lastmod>
+  <lastmod>2018-02-14T11:02:28+00:00</lastmod>
   <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
+
 <url>
   <loc>http://spandan.svvv.edu.in/pronite.html</loc>
-  <lastmod>2018-02-12T17:03:05+00:00</lastmod>
+  <lastmod>2018-02-14T11:02:28+00:00</lastmod>
   <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://spandan.svvv.edu.in/index.html</loc>
-  <lastmod>2018-02-12T17:03:04+00:00</lastmod>
-  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>http://spandan.svvv.edu.in/dashboard.html</loc>
-  <lastmod>2018-02-12T17:03:03+00:00</lastmod>
+  <lastmod>2018-02-14T11:02:25+00:00</lastmod>
   <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://spandan.svvv.edu.in/ca</loc>
+  <lastmod>2018-02-14T11:02:28+00:00</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 
+<url>
+  <loc>http://spandan.svvv.edu.in/ca/ca_form.html</loc>
+  <lastmod>2018-02-14T11:02:27+00:00</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
 
 </urlset>

@@ -8,7 +8,7 @@ function customBoi(){
         childData = childSnapshot.val();
         urlpic=childData['profile_picture'];
         jQuery("#userTable").append('<tbody><tr>\
-            <td>'+childData['spid']+'</td>\
+            <td><a href="'+childData['fbid']+'" target="_blank">'+childData['spid']+'</a></td>\
             <td><a href="'+urlpic+'" target="_blank">'+childData['username']+'</a></td>\
             <td>'+childData['mobile']+'</td>\
             <td>'+childData['email']+'</td>\

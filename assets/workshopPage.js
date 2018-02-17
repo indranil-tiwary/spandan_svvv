@@ -81,11 +81,10 @@ function eventCompleted(marker){
 }
 
 function readFirebaseData(){
-  var leadsRef = database.ref('users');
-  leadsRef.once('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      if (initialSS==childData['fbid']){
+  var leadsRef = database.ref('users/');
+  leadsRef.on('value', function(snapshot) {
+    if (snapshot.hasChild(initialSS)){
+      var childData = snapshot.child(initialSS).val();
         spandanId=childData['spid'];
         SPevents=childData['workshop'];
         if(SPevents==""){
@@ -93,7 +92,6 @@ function readFirebaseData(){
         }
         userFeedback();
       }
-   });
  },function(error){console.log(error);});
 }
 
@@ -124,17 +122,15 @@ function checkLoginState() {
 }
 
 function checkFirebaseData(){
-  var leadsRef = database.ref('users');
-  leadsRef.on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      if (initialSS==childData['fbid']){
-        var uid=childData['fbid'];
-        sessionStorage.SpandanSessionValue=uid;
+  var leadsRef = database.ref('users/');
+  leadsRef.once('value', function(snapshot) {
+    if (snapshot.hasChild(initialSS)){
+        sessionStorage.SpandanSessionValue=initialSS;
         window.location.href = "workshop.html";
       }
-   });
-   checkerSession();
+      else{
+        checkerSession();
+      }
  });
 }
 function checkerSession(){
