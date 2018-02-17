@@ -21,16 +21,19 @@
          <ul class="right hide-on-med-and-down">
            <li><a href="./">Home</a></li>
            <li><a href="#">Users</a></li>
+           <li><a onclick="javascript:xport.toCSV('userTable');" href="#">To CSV</a></li>
            <li><a onclick="logoutMain();" href="#">Logout</a></li>
          </ul>
          <ul class="side-nav" id="mobile-demo">
            <li><a href="./">Home</a></li>
            <li><a href="#">Users</a></li>
+           <li><a onclick="javascript:xport.toCSV('userTable');" href="#">To CSV</a></li>
            <li><a onclick="logoutMain();" href="#">Logout</a></li>
          </ul>
        </div>
      </nav>
      <div class="container">
+       <h3 id="mainHeading" style="text-transform:capitalize;font-family:'Helvetica',sans-serif;">Registered Users</h3>
         <table id="userTable">
       </table>
       </div>
@@ -38,6 +41,7 @@
      <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
      <script type="text/javascript" src="userPage.js"></script>
      <script type="text/javascript" src="common.min.js"></script>
+     <script type="text/javascript" src="xport.js"></script>
      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
      <script type="text/javascript">
