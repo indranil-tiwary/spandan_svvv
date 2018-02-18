@@ -1,9 +1,6 @@
-
 function checkerBoi(){
-
   if(sessionStorage.SpandanSessionValue){
     window.location.href = "dashboard.html";
-    document.getElementById("profileButton").innerHTML="Profile";
   }
   else{
     fb_login();
@@ -29,25 +26,23 @@ function checkLoginState() {
  });
   function statusChangeCallback(response) {
    if (response.status === 'connected') {
-     // Logged into your app and Facebook.
      facebookMain();
-      } else {
-        // The person is not logged into your app or we are unable to tell.
-      //document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
     }
+    else {}
   }
 }
 function checkFirebaseData(){
   var lRef = database.ref('users/');
   lRef.once('value', function(snapshot) {
-  snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      if (initialSS==childData['fbid']){
-        sessionStorage.SpandanSessionValue=initialSS;
-        window.location.href = "dashboard.html";
+      if(snapshot.hasChild(initialSS)){
+          var childData = snapshot.child(initialSS).val();
+          sessionStorage.SpandanSessionValue=initialSS;
+          sessionStorage.SpandanIDValue=childData['spid'];
+          window.location.href = "dashboard.html";
       }
-   });
- checkerSession();
+      else{
+        checkerSession();
+      }
 }, function(error){console.log(error);});
 }
 

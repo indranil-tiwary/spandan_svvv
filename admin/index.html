@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+ <html>
+   <head lang="en">
+     <!--Import Google Icon Font-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!--Import materialize.css-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+     <!--Let browser know website is optimized for mobile-->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta name="msapplication-TileColor" content="#1e88e5">
+  		<meta name="msapplication-TileImage" content="./favicon/ms-icon-144x144.png">
+  		<meta name="theme-color" content="#1e88e5">
+      <title>Spandan 2018 SVVV | Admin Panel</title>
+      <meta name="robots" content="noindex, nofollow" />
+      <style>
+        ul.dropdown-content.select-dropdown li span {color: #000;}
+        h5{font-weight:500;}
+      </style>
+   </head>
+   <body>
+     <nav>
+       <div class="nav-wrapper blue darken-1">
+         <a href="#!" class="brand-logo"><img style="padding:0.25rem;" src="..\assets\img\logo.png" alt="Spandan 2018"></a>
+         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+         <ul class="right hide-on-med-and-down">
+           <li><a href="#">Home</a></li>
+           <li><a href="users.html">Users</a></li>
+           <li><a onclick="logoutMain();" href="#">Logout</a></li>
+         </ul>
+         <ul class="side-nav" id="mobile-demo">
+           <li><a href="#">Home</a></li>
+           <li><a href="users.html">Users</a></li>
+           <li><a onclick="logoutMain();" href="#">Logout</a></li>
+         </ul>
+       </div>
+     </nav>
+     <div class="container">
+        <!-- Page Content goes here -->
+        <div class="row">
+          <div class="col s12">
+          <form>
+            <h5 class="input-field">Events:</h5>
+  					<select id="eventDrop">
+  						<option selected value="taal">Taal - The Dance Battle</option>
+  						<option value="swaranjali">Swaranjali - The Singing Face-off</option>
+  						<option value="ambriti">Ambriti - The Fashion Show</option>
+  						<option value="navyata">Navyata - Best Out Of Waste</option>
+  						<option value="mime">Mime & Nukkad Naatak</option>
+              <option value="kavyanjali">Kavyanjali - Poetry Competition</option>
+              <option value="firelesscooking">Fireless Cooking</option>
+  						<option value="doodle">Doodle & Graffiti</option>
+  						<option value="rj">Radio Jockeying</option>
+  						<option value="kandal">Kandal - Collage Making</option>
+  						<option value="facepaint">Ukti - Face Painting</option>
+              <option value="rachnakriti">Rachnakriti - Card Making</option>
+              <option value="chitrang">Chitrang - Rangoli Making</option>
+  						<option value="blog">Bloggin/Vlogging</option>
+  						<option value="editor">The Editor - Make Your Own Magazine"</option>
+  						<option value="finearts">Fine Arts Marathon</option>
+  						<option value="shortfilm">Short Film/Documentary Filmmaking</option>
+              <option value="mrmsspandan">Mr. & Ms. Spandan</option>
+              <option value="treasurehunt">Treasure Hunt</option>
+  					</select>
+          </form>
+          <button class="btn waves-effect waves-light blue darken-1" type="submit" onclick="customEvent();">View Details
+            <i class="material-icons right">send</i>
+          </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+          <form>
+            <h5 class="input-field">Workshops:</h5>
+  					<select id="workDrop">
+  						<option selected value="culinary">Culinary Arts</option>
+  						<option value="skateboarding">Skateboarding</option>
+              <option value="blogging">Blogging/Vlogging</option>
+  						<option value="photography">Photography</option>
+  						<option value="filmtv">Film/TV/Play Writing</option>
+  						<option value="finearts">Fine Arts</option>
+  					</select>
+          </form>
+          <button class="btn waves-effect waves-light blue darken-1" type="submit" onclick="customWork();">View Details
+            <i class="material-icons right">send</i>
+          </button>
+          </div>
+        </div>
+      </div>
+     <!--Import jQuery before materialize.js-->
+     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+     <script type="text/javascript" src="indexPage.js"></script>
+     <script type="text/javascript" src="common.min.js"></script>
+     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+     <script type="text/javascript">
+       $( document ).ready(function(){
+         $(".button-collapse").sideNav();
+         $('select').material_select();
+         $(".dropdown-content>li>a").css("color", "#fff");
+       });
+     </script>
+   </body>
+ </html>

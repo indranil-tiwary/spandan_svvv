@@ -197,21 +197,20 @@ jQuery( document ).ready(function( $ ) {
 	wow.init();
 
 
-	$("#submit_spandan").click(function()
-	{
-		writeUserData(document.getElementById('uid').value,
-			document.getElementById('urlpic').value,
-			document.getElementById('name').value,
-			document.getElementById('email').value,
-			document.getElementById('mobile').value,
-			document.getElementById('college').value,
-			document.getElementById('city').value,
-			document.getElementById('year').value,
-			document.getElementById('branch').value,
-			document.getElementById('degree').value,
-		);
-		window.location.href = "dashboard.html";
-	});
+	// $("#submit_spandan").click(function()
+	// {
+	// 	writeUserData(document.getElementById('uid').value,
+	// 		document.getElementById('urlpic').value,
+	// 		document.getElementById('name').value,
+	// 		document.getElementById('email').value,
+	// 		document.getElementById('mobile').value,
+	// 		document.getElementById('college').value,
+	// 		document.getElementById('city').value,
+	// 		document.getElementById('year').value,
+	// 		document.getElementById('branch').value,
+	// 		document.getElementById('degree').value,
+	// 	);
+	// });
 
 
 	/*** Overlay close*********/

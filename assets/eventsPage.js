@@ -107,7 +107,6 @@ else{
 }
 
 function writeUserEventData(eventFBName){
-  console.log("writingData");
   SPevents.push(eventFBName);
   firebase.database().ref('events/' + eventFBName+'/'+initialSS).update({
     spid:spandanId
@@ -186,11 +185,10 @@ function eventCompleted(marker){
 }
 
 function readFirebaseData(){
-  var leadsRef = database.ref('users');
-  leadsRef.once('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      if (initialSS==childData['fbid']){
+  var leadsRef = database.ref('users/');
+  leadsRef.on('value', function(snapshot) {
+    if (snapshot.hasChild(initialSS)){
+      var childData = snapshot.child(initialSS).val();
         spandanId=childData['spid'];
         SPevents=childData['events'];
         if(SPevents==""){
@@ -198,7 +196,6 @@ function readFirebaseData(){
         }
         userFeedback();
       }
-   });
  },function(error){console.log(error);});
 }
 
@@ -220,28 +217,22 @@ function checkLoginState() {
  });
   function statusChangeCallback(response) {
    if (response.status === 'connected') {
-     // Logged into your app and Facebook.
      facebookMain();
       } else {
-        console.log("Please log into Facebook");
-        // The person is not logged into your app or we are unable to tell.
-      //document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
     }
   }
 }
 
 function checkFirebaseData(){
-  var leadsRef = database.ref('users');
-  leadsRef.on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      if (initialSS==childData['fbid']){
-        var uid=childData['fbid'];
-        sessionStorage.SpandanSessionValue=uid;
+  var leadsRef = database.ref('users/');
+  leadsRef.once('value', function(snapshot) {
+    if (snapshot.hasChild(initialSS)){
+        sessionStorage.SpandanSessionValue=initialSS;
         window.location.href = "events.html";
       }
-   });
-   checkerSession();
+      else{
+        checkerSession();
+      }
  });
 }
 function checkerSession(){

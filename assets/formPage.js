@@ -8,8 +8,23 @@ function checkerBoi(){
     checkFirebaseData();
   }
   else{
-    window.location.href = "index.html";
+    window.location.href = "dashboard.html";
   }
+}
+
+function submit_spandan()
+{
+  writeUserData(document.getElementById('uid').value,
+    document.getElementById('urlpic').value,
+    document.getElementById('name').value,
+    document.getElementById('email').value,
+    document.getElementById('mobile').value,
+    document.getElementById('college').value,
+    document.getElementById('city').value,
+    document.getElementById('year').value,
+    document.getElementById('branch').value,
+    document.getElementById('degree').value
+  );
 }
 
 function firebasekaAuth(){
@@ -105,11 +120,10 @@ function editFormData(uid, urlpic, name, email, mobile,college,city,year,branch,
 }
 
 function checkFirebaseData(){
-  var leadsRef = database.ref('users');
+  var leadsRef = database.ref('users/');
   leadsRef.on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      if (initialSS==childData['fbid']){
+      if (snapshot.hasChild(initialSS)){
+        var childData = snapshot.child(initialSS).val();
         spandanId=childData['spid'];
         eventHolder=childData['events'];
         wsHolder=childData['workshop'];
@@ -119,7 +133,6 @@ function checkFirebaseData(){
                       childData['college'], childData['city'], childData['year'],
                     childData['branch'], childData['degree']);
       }
-   });
  });
 }
 
@@ -144,7 +157,9 @@ window.fbAsyncInit = function() {
       version    : 'v2.11'
     });
     FB.AppEvents.logPageView();
-    checkLoginState();
+    if(sessionStorage.tokenEdit){
+      checkLoginState();
+    }
   };
 
   (function(d, s, id){
