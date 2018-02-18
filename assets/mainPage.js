@@ -1,57 +1,13 @@
 
-function checkEvent(eName){
+function checkerBoi(){
+
   if(sessionStorage.SpandanSessionValue){
-    initialSS=sessionStorage.SpandanSessionValue;
-    readFirebaseData();
-    var eventName;
-    var eventFBName;
-  if(eName==1){
-    var eventName="Taal - The Dance Competition"
-    var eventFBName="taal"
-    writeUserEventData(eventFBName);
-    jQuery("#modal-1").removeClass("md-show");
+    window.location.href = "dashboard.html";
+    document.getElementById("profileButton").innerHTML="Profile";
   }
-  else if (eName==2) {
-    var eventName="Swaranjali - The Singing Competition"
-    var eventFBName="swaranjali"
-    writeUserEventData(eventFBName);
-    jQuery("#modal-2").removeClass("md-show");
+  else{
+    fb_login();
   }
-  else if (eName==3) {
-    var eventName="Ambriti - The Fashion Show"
-    var eventFBName="ambriti"
-    writeUserEventData(eventFBName);
-    jQuery("#modal-3").removeClass("md-show");
-  }
-}
-else{
-  fb_login();
-  }
-}
-
-function writeUserEventData(eventFBName){
-  firebase.database().ref('events/' + eventFBName+'/'+initialSS).update({
-    spid:spandanId
-  });
-  firebase.database().ref('users/' + initialSS).update({
-    events: SPevents+","+eventFBName
-  });
-}
-function myMain(){
-  jQuery("#modal-3").removeClass("md-show");
-}
-
-function readFirebaseData(){
-  var leadsRef = database.ref('users');
-  leadsRef.on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      if (initialSS==childData['fbid']){
-        spandanId=childData['spid'];
-        SPevents=childData['events'];
-      }
-   });
- });
 }
 
 function firebasekaAuth(){
@@ -59,62 +15,59 @@ function firebasekaAuth(){
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
+    // ...
   });
 }
 
 function fb_login(){
-    FB.login( function(response) {checkLoginState();}, { scope: 'public_profile,email' } );
+     FB.login( function(response) {checkLoginState();}, { scope: 'public_profile,email' } );
  }
+
 function checkLoginState() {
  FB.getLoginStatus(function(response) {
    statusChangeCallback(response);
-   console.log(response);
  });
   function statusChangeCallback(response) {
    if (response.status === 'connected') {
      // Logged into your app and Facebook.
      facebookMain();
       } else {
-        console.log("Please log into Facebook");
         // The person is not logged into your app or we are unable to tell.
       //document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
     }
   }
 }
-
 function checkFirebaseData(){
-  var leadsRef = database.ref('users');
-  leadsRef.on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
+  var lRef = database.ref('users/');
+  lRef.once('value', function(snapshot) {
+  snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
       if (initialSS==childData['fbid']){
-        var uid=childData['fbid'];
-        sessionStorage.SpandanSessionValue=uid;
-        window.location.href = "events.html";
+        sessionStorage.SpandanSessionValue=initialSS;
+        window.location.href = "dashboard.html";
       }
    });
- });
+ checkerSession();
+}, function(error){console.log(error);});
 }
+
+
 function checkerSession(){
   if(sessionStorage.SpandanSessionValue){}
   else{
-     console.log("form pe ja");
      sessionStorage.tokenEdit=true;
      window.location.href = "form.html";
   }
 }
 
 function facebookMain() {
-    console.log('Welcome!  Fetching your information.... ');
     FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
     function(response) {
-      console.log('Successful login for: ' + response.name);
-      var uid=response.id;
-      initialSS=uid;
+      initialSS=response.id;
       checkFirebaseData();
-      checkerSession();
     });
 }
+
 
 // Initialize Firebase
 var config = {
@@ -151,4 +104,8 @@ firebase.initializeApp(config);
    var database = firebase.database();
    var spandanId;
    var initialSS;
-   var SPevents;
+   $(document).ready(function() {
+     if(sessionStorage.SpandanSessionValue){
+       document.getElementById("profileButton").innerHTML="Profile";
+     }
+  });

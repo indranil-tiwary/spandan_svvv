@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
+		<meta http-equiv="Content-Language" content="en">
 		<!-- FAVICON -->
 		<link rel="apple-touch-icon" sizes="57x57" href="fav/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
@@ -19,20 +19,31 @@
 		<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
 		<link rel="manifest" href="favicon/manifest.json">
-		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileColor" content="#0c59d8">
 		<meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
-		<meta name="theme-color" content="#ffffff">
+		<meta name="theme-color" content="#0c59d8">
 
 		<!-- TITLE -->
-		<title>Spandan SVVV 2018</title>
+		<title>Spandan 2018 SVVV | Home</title>
 
 		<!-- DESCRIPTION -->
-		<meta name="description" content="The Cultural Festival of Shri Vaishnav Vidyapeeth Vishwavidyalaya Indore - Spandan 2018" />
-		<meta name="keywords"  content="Event, Coming Soon, Concert, Conference, Counter, Exhibition, Festival, Landing Page, Music, One Page, Registration Form, Seminar, Subscription, Mailchimp" />
+		<meta name="description" content="Central India's largest cultural and music festival and the official fest of Shri Vaishnav Vidyapeeth Vishwavidyalaya, Indore - Spandan 2018 SVVV" />
+		<meta name="keywords"  content="Spandan 2018, SVVV, Fest, Concert, Music Festival, Indore, Event" />
 		<meta name="author" content="Digital-Projekt" />
+		<meta name="robots" content="index, follow" />
+		<meta property="og:title" content="Spandan 2018 SVVV | Home" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://spandan.svvv.edu.in" />
+		<meta property="og:image" content="http://spandan.svvv.edu.in/spandan2018.png" />
+		<meta property="og:description" content="Central India's largest cultural and music festival and the official fest of Shri Vaishnav Vidyapeeth Vishwavidyalaya, Indore - Spandan 2018 SVVV">
+		<meta property="og:site_name" content="Spandan 2018, SVVV Indore">
+		<meta name="publisher" content="https://plus.google.com/+SpandanSVVV">
+		<meta name="distribution" content="Global" />
+		<meta name="rating" content="General" />
 
 		<!-- GOOGLE FONTS -->
-		<link href='http://fonts.googleapis.com/css?family=Raleway:400,700,600,500,300,200,100,800,900' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700,600,500,300,200,100,800,900' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:400,500' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
 
 		<!-- STYLESHEETS -->
@@ -50,7 +61,14 @@
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
-
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113949655-1"></script>
+		<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+  		gtag('config', 'UA-113949655-1');
+		</script>
 	</head>
 
     <body id="top" data-spy="scroll" data-target=".header" data-offset="80">
@@ -77,14 +95,14 @@
 				   </div>
 				   <div class="collapse navbar-collapse" id="example-navbar-collapse">
 					  <ul class="nav navbar-nav">
-						<li><a data-scroll href="#intro">About</a></li>
-						<li><a data-scroll href="#responsive">Schedule</a></li>
+						<!-- <li><a data-scroll href="#intro">About</a></li>
+						<li><a data-scroll href="#responsive">Schedule</a></li> -->
 						<li><a href="./events.html">Events</a></li>
 						<li><a href="./workshop.html">Workshops</a></li>
-						<li><a href="./pronite.html">Pronites</a></li>
+						<li><a data-scroll href="./pronite.html">Pronites</a></li>
 						<li><a data-scroll href="#sponsers">Sponsors</a></li>
 						<li><a data-scroll href="#contact">Contact</a></li>
-						<li><a href="#" onclick="checkerBoi();" class=" btn-effect wow animated fadeIn">Login</a></li>
+						<li><a id="profileButton" href="#" onclick="checkerBoi();" class=" btn-effect wow animated fadeIn">Login</a></li>
 						<li class="hidden"><a href="#sec_1">Home</a></li>
 					  </ul>
 				   </div>
@@ -106,10 +124,10 @@
 
 			<div class="home-bg"></div>
 			<div class="col-lg-12 landing-text-pos align-center">
-				<h1 class="wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="1s">Spandan 2018</h1>
+				<h1 class="wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="1s"><img src="assets/img/logo-main.png" alt="Spandan 2018" style="max-width:90%;"> </h1>
 				<hr id="title_hr"/>
 				<p class="wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="1s">SVVV, Indore. 22-24 Feb 2018</p>
-				<a class="learn-more-btn btn-effect wow animated fadeIn" data-wow-duration="0.5s" data-wow-delay="1.5s" data-scroll href="#swag">Book Now</a>
+				<a class="learn-more-btn btn-effect wow animated fadeIn" data-wow-duration="0.5s" data-wow-delay="1.5s" data-scroll href="#" onclick="checkerBoi();">Register with <i class="fa fa-facebook-square fa-2x"></i> </a>
 			</div>
 		</section>
 		<!--/HOME-->
@@ -121,7 +139,7 @@
 							<div class="col-lg-8 align-center about">
 								<h1 class="arrow">ABOUT SPANDAN</h1>
 								<hr>
-								<p>SVVV's Spandan is cultural fest power packed with fun and entertainment which will leave the attendees in euphoria. For this we are equipped with buzzing events like Humor Fest, Pronites, Silent Disco, Nirvana Rock Concert, Ambriti - Fashion Show, Swaranjali- The Singing Face-off and Taal - The Dance Battle. All this coupled up with the Food Fiesta and our in-house shenanigans.</p><p>Other fun events involve treasure hunt, sketching, fireless cooking, etc. to engage and promote interaction among the audience and enrich the culture of the overall fest.</p>
+								<p>SVVV's Spandan is cultural fest power packed with fun and entertainment which will leave the attendees in euphoria. For this we are equipped with buzzing events like Humor Fest, Pronites, Silent Disco, Nirvana Rock Concert, Ambriti - The Fashion Show, Swaranjali - The Singing Face-off and Taal - The Dance Battle. All this coupled up with the Food Fiesta and our in-house shenanigans.</p><p>Other fun events involve treasure hunt, sketching, face painting, fireless cooking, etc. to engage and promote interaction among the audience and enrich the culture of the overall fest.</p>
 							</div>
 						</div>
 					</div>
@@ -292,7 +310,7 @@
 				<!-- Vimoe Video-->
 				<div class="grid-gal">
 				  <figure class="block-hover vimeo-video col-lg-3 col-sm-12">
-					<a class="venoboxvid" data-vbtype="youtube"  href="https://www.youtube.com/watch?v=s9K9FPyCNL8" target="_self">
+					<a class="venoboxvid" data-vbtype="youtube"  href="https://www.youtube.com/watch?v=s9K9FPyCNL8" target="_blank">
 						<img src="assets/img/vdo-icn.png" alt="video_hover">
 						<span>VIDEO</span>
 					</a>
@@ -301,7 +319,7 @@
 
 			</div><!--row ends here-->
         </section>
-        <!--/FEATURES-->
+        <!--/featURES-->
 
 		<!--LINE UP-->
         <section class="text-center section-padding" id="responsive">
@@ -309,7 +327,7 @@
 				<div class="row">
 					<div class="col-md-8 align-center wow animated fadeInLeft">
 						<h1 class="arrow">Schedule</h1><hr>
-						<p>Coming Soon!</p>
+						<p>Coming Soon!</p><br>
 					</div>
 				</div>
 			</div>
@@ -317,13 +335,13 @@
     </section>
 
 
-		<!-- Event social links and download-->
+		<!-- Event social links and download
 		<section class="event-download-social-link section-padding">
 			<div class="col-lg-6 col-md-12 align-center event-download-padding">
 				<a class="d-sch text-right" href="#" target="_blank"><i class="fa fa-download"></i>download schedule</a>
 				<a class="fb " href="#" onclick="checkerBoi();"><i class="fa fa-facebook"></i>connect via facebook</a>
 			</div>
-		</section>
+		</section>		-->
 		<!--/SCHEDULE-->
 
         <!--Artists-->
@@ -331,8 +349,8 @@
 			<div class="container">
 				<div class="row">
 				  <div class="col-lg-8 wow animated fadeInUp align-center" data-wow-duration="1s" data-wow-delay="1s">
-					<h1 class="arrow">Artists</h1><hr>
-					<p>We will tingle you with our humour fest, touch your soul with music and make you stomp your feat to the beats of the Best DJ of India.</p>
+					<h1 class="arrow">Highlights</h1><hr>
+					<p>We will tingle you with our humour fest, touch your soul with music and make you stomp your feet to the beats of the Best DJ of India.</p>
 				  </div>
 				</div>
 				<div class="row">
@@ -345,7 +363,7 @@
 											<div class="img">
 											  <img src="assets/img/main/event.jpg" alt="Portfolio Item">
 											  <div class="overlay">
-												<button class="md-trigger expand" data-modal="modal-1"><i class="fa fa-search"></i><br>View More</button>
+												<a href="./events.html"><button class="md-trigger expand"><i class="fa fa-search"></i><br>View More</button></a>
 											  </div>
 											</div>
 										</div>
@@ -358,7 +376,7 @@
 											<div class="img">
 												<img src="assets/img/main/workshop.jpg" alt="Portfolio Item">
 												<div class="overlay">
-													<button class="md-trigger expand" data-modal="modal-2"><i class="fa fa-search"></i><br>View More</button>
+													<a href="./workshop.html"><button class="md-trigger expand"><i class="fa fa-search"></i><br>View More</button></a>
 												</div>
 											</div>
 										</div>
@@ -371,7 +389,7 @@
 											<div class="img">
 												<img src="assets/img/main/pronite.jpg" alt="Portfolio Item">
 												<div class="overlay">
-													<button class="md-trigger expand" data-modal="modal-3"><i class="fa fa-search"></i><br>View More</button>
+													<a href="./pronite.html"><button class="md-trigger expand"><i class="fa fa-search"></i><br>View More</button></a>
 												</div>
 											</div>
 										</div>
@@ -384,212 +402,15 @@
 					</div>
 				</div> <!--Row Ends Here-->
 			</div>
-			<!-- Example Speaker -->
-			<div class="md-modal md-effect-9" id="modal-1">
-				<div class="md-content">
-					<div class="folio">
-						<div class="avatar1"></div>
-						<div class="sp-name"><strong>Aakash Mehta</strong><br/>Comedian | Musician</div>
-						<div class="sp-dsc">
-							Aakash Mehta is a writer, comedian and musician from Mumbai. He's been actively involved in the Mumbai comedy scene for over 6 years, and has toured the nation and a few parts of the world plying his craft as well.
-							<blockquote>
-							<p>Here is a long quotation here is a long quotation proin gravida nibh vel velit auctor aliquet aenean sollicitudin.</p>
-							</blockquote>
-						This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-						</div>
-						<div class="sp-social">
-							<ul>
-								<li><a href="https://www.facebook.com/KuchBhiMehta/" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="https://twitter.com/KuchBhiMehta?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="social-btn"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="https://www.youtube.com/channel/UCFhk_JAfHa_ONUwUNKDtl3A" class="social-btn"><i class="fa fa-youtube"></i></a></li>
-							</ul>
-						</div>
-						<button class="md-close"><i class="fa fa-times"></i></button>
-					</div>
-				</div>
-			</div>
-			<div class="md-overlay"></div>
-			<!-- /Example Speaker -->
-			<!-- Example Speaker -->
-			<div class="md-modal md-effect-9" id="modal-2">
-				<div class="md-content">
-					<div class="folio">
-						<div class="avatar2"></div>
-						<div class="sp-name"><strong>Mark Anderson</strong><br/>Director, ABC</div>
-						<div class="sp-dsc">
-						This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.
-							<blockquote>
-							<p>Here is a long quotation here is a long quotation proin gravida nibh vel velit auctor aliquet aenean sollicitudin.</p>
-							</blockquote>
-						This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-						</div>
-						<div class="sp-social">
-							<ul>
-								<li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#" class="social-btn"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-							</ul>
-						</div>
-						<button class="md-close"><i class="fa fa-times"></i></button>
-					</div>
-				</div>
-			</div>
-			<div class="md-overlay"></div>
-			<!-- /Example Speaker -->
-			<!-- Example Speaker -->
-			<div class="md-modal md-effect-9" id="modal-3">
-				<div class="md-content">
-					<div class="folio">
-						<div class="avatar3"></div>
-						<div class="sp-name"><strong>Mark Anderson</strong><br/>Director, ABC</div>
-						<div class="sp-dsc">
-						This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.
-							<blockquote>
-							<p>Here is a long quotation here is a long quotation proin gravida nibh vel velit auctor aliquet aenean sollicitudin.</p>
-							</blockquote>
-						This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-						</div>
-						<div class="sp-social">
-							<ul>
-								<li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#" class="social-btn"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-							</ul>
-						</div>
-						<button class="md-close"><i class="fa fa-times"></i></button>
-					</div>
-				</div>
-			</div>
-			<div class="md-overlay"></div>
-			<!-- /Example Speaker -->
-			<!-- Example Speaker -->
-			<div class="md-modal md-effect-9" id="modal-4">
-				<div class="md-content">
-					<div class="folio">
-						<div class="avatar4"></div>
-						<div class="sp-name"><strong>Mark Anderson</strong><br/>Director, ABC</div>
-						<div class="sp-dsc">
-						This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.
-							<blockquote>
-							<p>Here is a long quotation here is a long quotation proin gravida nibh vel velit auctor aliquet aenean sollicitudin.</p>
-							</blockquote>
-						This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-						</div>
-						<div class="sp-social">
-							<ul>
-								<li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#" class="social-btn"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-							</ul>
-						</div>
-						<button class="md-close"><i class="fa fa-times"></i></button>
-					</div>
-				</div>
-			</div>
-			<div class="md-overlay"></div>
-			<!-- /Example Speaker -->
-			<!-- Example Speaker -->
-			<div class="md-modal md-effect-9" id="modal-5">
-				<div class="md-content">
-					<div class="folio">
-						<div class="avatar5"></div>
-						<div class="sp-name"><strong>Mark Anderson</strong><br/>Director, ABC</div>
-						<div class="sp-dsc">
-						This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.
-							<blockquote>
-							<p>Here is a long quotation here is a long quotation proin gravida nibh vel velit auctor aliquet aenean sollicitudin.</p>
-							</blockquote>
-						This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-						</div>
-						<div class="sp-social">
-							<ul>
-								<li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#" class="social-btn"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-							</ul>
-						</div>
-						<button class="md-close"><i class="fa fa-times"></i></button>
-					</div>
-				</div>
-			</div>
-			<div class="md-overlay"></div>
-			<!-- /Example Speaker -->
-			<!-- Example Speaker -->
-			<div class="md-modal md-effect-9" id="modal-6">
-				<div class="md-content">
-					<div class="folio">
-						<div class="avatar6"></div>
-						<div class="sp-name"><strong>Mark Anderson</strong><br/>Director, ABC</div>
-						<div class="sp-dsc">
-						This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.
-							<blockquote>
-							<p>Here is a long quotation here is a long quotation proin gravida nibh vel velit auctor aliquet aenean sollicitudin.</p>
-							</blockquote>
-						This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-						</div>
-						<div class="sp-social">
-							<ul>
-								<li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#" class="social-btn"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-							</ul>
-						</div>
-						<button class="md-close"><i class="fa fa-times"></i></button>
-					</div>
-				</div>
-			</div>
-			<div class="md-overlay"></div>
-			<!-- /Example Speaker -->
         </section>
 		<!--/SPEAKER-->
 
         <!--REGISTER FORM-->
         <section id="swag" class="swag text-center">
 			<div class="container">
-				<div class="row">
+				<div class="row bottom-spacing">
 					<div class="col-lg-9 align-center">
-						<form id="nl-form" class="nl-form ">
-							Hi! My name is
-							<input id="name" type="text" name="name" placeholder="Enter your name" data-subline="Enter your name"/>
-							.
-							I would like to book for the
-							<select id="field_1">
-								<option value="1" selected>General</option>
-								<option value="2">VIP</option>
-								<option value="3">Super VIP</option>
-								<option value="4">Group</option>
-							</select> pack
-
-							.
-							Contact me on
-							<input id="email1" type="text" name="email1" placeholder="My Email address" data-subline="Enter your email address"/>
-							<div class="nl-submit-wrap">
-								<button class="nl-submit btn-effect" type="submit" id="submit_btn">Submit</button>
-							</div>
-							<div id="result"></div>
-							<div class="nl-overlay"></div>
-						</form>
-
-							<div class="md-modal md-effect-9" id="modal-10">
-							<div class="md-content padding-none">
-								<div class="folio">
-
-									<div class="sp-name disclaimer"><strong>Terms and Conditions</strong></div>
-									<div class="sp-dsc disclaim-border">
-									<ul>
-										<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua.</li>
-										<li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
-										<li>Excepteur sint occaecat cupidatat non proident.</li>
-									</ul>
-									</div>
-
-									<button class="md-close"><i class="fa fa-times"></i></button>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12 tc">Please read the<button class="md-trigger" data-modal="modal-10">Terms & Conditions</button>carefully.</div>
-						<!-- the overlay element -->
-						<div class="md-overlay"></div>
+						<h1>Online Registration Starting Soon!</h1>
 					</div>
 				</div>
 			</div>
@@ -602,11 +423,11 @@
 				<div class="row">
 					<div class="col-md-8 align-center wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
 						<h1 class="arrow">Our Sponsors</h1><hr>
-						<p>Lorem ipsum dolor sit amet, alia honestatis an qui, ne soluta nemore eripuit sed. Falli exerci aperiam ut his, prompta feugiat usu minimum delicata.</p>
+						<p></p>
 					</div>
 					<!-- Jssor Slider Begin -->
 					<div id="slider1_container" style=" ">
-						<div class="inner_carousal" data-u="slides" style="">
+						<div class="inner_carousal" data-u="slides" style="background-color:white;">
 							<div><img alt="sp1" src="assets/img/sponsor/sp1.png" /></div>
 							<div><img alt="sp2" src="assets/img/sponsor/sp2.png" /></div>
 							<div><img alt="sp3" src="assets/img/sponsor/sp3.png" /></div>
@@ -622,11 +443,11 @@
 		</div>
 		 <!-- /SPONSORS -->
 
-		<!--SUBSCRIBE-->
+		<!--SUBSCRIBE
         <section class="subscribe text-center">
 			<div class="subscribe-overlay"></div>
 			<div class="container wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.3s">
-				<h1>Subscribe for newsletter</h1>
+				<h1>Subscribe for updates</h1>
 				<form action="notify-me.php" id="notifyMe" method="POST" class="center-block align-center col-lg-5 col-md-5 col-sm-10 col-xs-10">
 					<div class="input-group col-lg-12 align-center">
 					  <input type="text" class="form-control email-add" name="email" placeholder="Enter Email Address">
@@ -635,7 +456,7 @@
 				</form>
 			</div>
         </section>
-		<!-- /SUBSCRIBE -->
+		-->
 
 		<!--CONTACT-->
     <section class="text-center section-padding contact-wrap" id="contact">
@@ -656,7 +477,7 @@
 					<div class="col-md-4 wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.7s">
 						<div class="light-box box-hover">
 							<h2><span>Phone</span></h2>
-							<p>91-731-2729071-75<br>91-731-2349111-2</p>
+							<p>+918827487737<br>+918305006647</p>
 						</div>
 					</div>
 					<div class="col-md-4 wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.9s">
@@ -667,15 +488,15 @@
 					</div>
 				</div>
 				<div class="row">
-					<a id="get_directions" class="learn-more-btn btn-effect" href="https://www.google.co.in/maps/place/Shri+Vaishnav+Vidyapeeth+Vishwavidyalaya/@22.824693,75.8474383,17z/data=!3m1!4b1!4m5!3m4!1s0x3963039c587a8091:0x206d00d7a5e4afb3!8m2!3d22.824693!4d75.849627?hl=en&authuser=0"><i class="fa fa-map-marker"></i><span>Get Directions</span></a>
+					<a id="get_directions" class="learn-more-btn btn-effect" target="_blank" href="https://www.google.co.in/maps/place/Shri+Vaishnav+Vidyapeeth+Vishwavidyalaya/@22.824693,75.8474383,17z/data=!3m1!4b1!4m5!3m4!1s0x3963039c587a8091:0x206d00d7a5e4afb3!8m2!3d22.824693!4d75.849627?hl=en&authuser=0"><i class="fa fa-map-marker"></i><span>Get Directions</span></a>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="social-buttons">
-							<li><a href="https://www.fb.com/SpandanSVVV/" class="social-btn"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="https://twitter.com/Spandan_2018" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="https://www.instagram.com/spandan_2018/" class="social-btn"><i class="fa fa-instagram"></i></a></li>
-							<li><a href="https://www.youtube.com/c/SpandanSVVV/" class="social-btn"><i class="fa fa-youtube"></i></a></li>
+							<li><a href="https://fb.com/SpandanSVVV/" target="_blank" class="social-btn"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/Spandan_2018" target="_blank" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="https://instagram.com/spandan_2018/" target="_blank" class="social-btn"><i class="fa fa-instagram"></i></a></li>
+							<li><a href="https://youtube.com/c/SpandanSVVV/" target="_blank" class="social-btn"><i class="fa fa-youtube"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -689,37 +510,25 @@
 				<div class="row">
 					<div class="col-md-6 align-center">
 						<ul class="legals">
-							<li><button class="md-trigger " data-modal="modal-11">Disclaimer</button></li>
-							<li><a href="http://multia.in/">Made in Multia</a></li>
+							<li><a href="#">Team Spandan</a></li>
+							<li><a href="http://www.indraniltiwary.com" target="_blank">Indranil Tiwary</a></li>
+							<li><a href="http://himankpathak.me" target="_blank">Himank Pathak</a></li>
+							<li><a href="http://www.digitalprojekt.co" target="_blank">Digital Projekt</a></li>
 						</ul>
 					</div>
-					<div class="md-modal md-effect-9" id="modal-11">
-						<div class="md-content padding-none">
-							<div class="folio">
-								<div class="sp-name disclaimer"><strong>Disclaimer</strong></div>
-								<div class="sp-dsc disclaim-border">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-									<br /><br />
-									Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-								</div>
-								<button class="md-close"><i class="fa fa-times"></i></button>
-							</div>
-						</div>
-					</div>
-					<div class="md-overlay"></div>
 				</div>
 			</div>
-        </footer>
+    </footer>
 		<!-- /FOOTER -->
 
 	</div>
 		<!--SCRIPTS-->
 
-		<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-		<script src="mainPage.js"></script>
-
 		<script type="text/javascript" src="assets/js/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="assets/js/jquery-ui-1.10.4.min.js"></script>
+
+		<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+		<script src="assets/mainPage.js"></script>
 
 		<!--VIMEO VIDEO-->
         <script type="text/javascript" src="assets/js/venobox.js"></script>
@@ -732,9 +541,7 @@
 		<script type="text/javascript" src="assets/js/classie.js" ></script>
 		<script type="text/javascript" src="assets/js/modalEffects.js" ></script>
 
-	    <script type="text/javascript" src="assets/js/nlform.js" ></script>
-		<script>var nlform = new NLForm( document.getElementById( 'nl-form' ) );</script>
-        <script type="text/javascript" src="assets/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js" ></script>
 
 		<!-- TEAM SLIDER  -->
 		<script type="text/javascript" src="assets/js/jquery.flexslider.js" ></script>

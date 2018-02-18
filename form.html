@@ -19,20 +19,31 @@
 		<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
 		<link rel="manifest" href="favicon/manifest.json">
-		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileColor" content="#0c59d8">
 		<meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
-		<meta name="theme-color" content="#ffffff">
+		<meta name="theme-color" content="#0c59d8">
 
 		<!-- TITLE -->
-		<title>Spandan SVVV 2018</title>
+		<title>Spandan 2018 SVVV | Sign Up</title>
 
 		<!-- DESCRIPTION -->
-		<meta name="description" content="The Cultural Festival of Shri Vaishnav Vidyapeeth Vishwavidyalaya Indore - Spandan 2018" />
-		<meta name="keywords"  content="Event, Coming Soon, Concert, Conference, Counter, Exhibition, Festival, Landing Page, Music, One Page, Registration Form, Seminar, Subscription, Mailchimp" />
+		<meta name="description" content="Central India's largest cultural and music festival and the official fest of Shri Vaishnav Vidyapeeth Vishwavidyalaya, Indore - Spandan 2018 SVVV" />
+		<meta name="keywords"  content="Spandan 2018, SVVV, Fest, Concert, Music Festival, Indore, Event" />
 		<meta name="author" content="Digital-Projekt" />
+		<meta name="robots" content="index, follow" />
+		<meta property="og:title" content="Spandan 2018 SVVV | Sign Up" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://spandan.svvv.edu.in/form.html" />
+		<meta property="og:image" content="http://spandan.svvv.edu.in/spandan2018.png" />
+		<meta property="og:description" content="Central India's largest cultural and music festival and the official fest of Shri Vaishnav Vidyapeeth Vishwavidyalaya, Indore - Spandan 2018 SVVV">
+		<meta property="og:site_name" content="Spandan 2018, SVVV Indore">
+		<meta name="publisher" content="https://plus.google.com/+SpandanSVVV">
+		<meta name="distribution" content="Global" />
+		<meta name="rating" content="General" />
 
 		<!-- GOOGLE FONTS -->
-		<link href='http://fonts.googleapis.com/css?family=Raleway:400,700,600,500,300,200,100,800,900' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700,600,500,300,200,100,800,900' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:400,500' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
 
 		<!-- STYLESHEETS -->
@@ -50,7 +61,14 @@
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
-
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113949655-1"></script>
+		<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+  		gtag('config', 'UA-113949655-1');
+		</script>
 	</head>
 
     <body id="top" data-spy="scroll" data-target=".header" data-offset="80">
@@ -118,9 +136,9 @@
 					Mobile No.:
 					<input id="mobile" type="text" name="phone" required placeholder="Your Phone Number" data-subline="Enter your phone number"/><br>
 					College:
-					<input id="college" type="text" name="college" placeholder="Your College Name" data-subline="Enter your College Name"/><br>
+					<input id="college" type="text" name="college" required placeholder="Your College Name" data-subline="Enter your College Name"/><br>
 					City:
-					<input id="city" type="text" name="city" placeholder="Your City" data-subline="Enter your city name"/><br>
+					<input id="city" type="text" name="city" required placeholder="Your City" data-subline="Enter your city name"/><br>
 					Year of study:
 					<select id="year">
 						<option value="1" selected>First</option>
@@ -130,15 +148,15 @@
 						<option value="5">Fifth</option>
 					</select> <br>
 					Branch of study:
-					<input id="branch" type="text" name="branch" placeholder="Your Branch Name" data-subline="Enter your branch"/><br>
+					<input id="branch" type="text" name="branch" required placeholder="Your Branch Name" data-subline="Enter your branch"/><br>
 					Degree:
-					<input id="degree" type="text" name="course" placeholder="Your Degree Name" data-subline="Enter your degree name"/><br>
+					<input id="degree" type="text" name="course" required placeholder="Your Degree Name" data-subline="Enter your degree name"/><br>
 					<div id="result"></div>
 					<div class="nl-overlay"></div>
-				</form>
-				<div class="nl-submit-wrap">
-					<button class="nl-submit btn-effect" type="submit" id="submit_spandan">Submit</button>
-				</div>
+					</form>
+
+					<button class="nl-submit btn-effect" style="font-weight: 600;letter-spacing: 0.2em;padding: 12px;position: relative;text-transform: uppercase;width: 200px;" type="submit" id="submit_spandan">Submit</button>
+					<br>
 
 					<div class="md-modal md-effect-9" id="modal-10">
 					<div class="md-content padding-none">
@@ -157,6 +175,7 @@
 						</div>
 					</div>
 				</div>
+				<br>
 				<div class="col-md-12 tc">Please read the<button class="md-trigger" data-modal="modal-10">Terms & Conditions</button>carefully.</div>
 				<!-- the overlay element -->
 				<div class="md-overlay"></div>
@@ -166,52 +185,51 @@
 		</section>
 <!-- /REGISTER FORM -->
 
-		<!--CONTACT-->
-        <section class="text-center section-padding contact-wrap" id="contact">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 wow animated fadeInLeft align-center" data-wow-duration="1s" data-wow-delay="0.3s">
-						<h1 class="arrow">Contact</h1><hr>
-						<p>Lorem ipsum dolor sit amet, alia honestatis an qui, ne soluta nemore eripuit sed. Falli exerci aperiam ut his, prompta feugiat usu minimum delicata.</p>
-					</div>
-				</div>
-				<div class="row contact-details">
-					<div class="col-md-4 wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
-						<div class="light-box box-hover">
-							<h2><span>Address</span></h2>
-							<p>Level 5,<br> 245 Quigley Bvld,<br>Azuire</p>
-						</div>
-					</div>
-					<div class="col-md-4 wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.7s">
-						<div class="light-box box-hover">
-							<h2><span>Phone</span></h2>
-							<p>+61 9 211 3747<br>+61 3 075 8371</p>
-						</div>
-					</div>
-					<div class="col-md-4 wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.9s">
-						<div class="light-box box-hover">
-							<h2><span>Email</span></h2>
-							<p><a href="#">mievent@reach.fr</a><br><a href="#">support@reach.com</a><br><a href="#">contact@mievent.com</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<a id="get_directions" class="learn-more-btn btn-effect" href="#"><i class="fa fa-map-marker"></i><span>Get Directions</span></a>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<ul class="social-buttons">
-							<li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-							<li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
-							<li><a href="#" class="social-btn"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#" class="social-btn"><i class="fa fa-skype"></i></a></li>
-						</ul>
-					</div>
+<!--CONTACT-->
+<section class="text-center section-padding contact-wrap" id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 wow animated fadeInLeft align-center" data-wow-duration="1s" data-wow-delay="0.3s">
+				<h1 class="arrow">Contact</h1><hr>
+				<p>Having some Query ? Feel free to contact us !</p>
+			</div>
+		</div>
+		<div class="row contact-details">
+			<div class="col-md-4 wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+				<div class="light-box box-hover">
+					<h2><span>Address</span></h2>
+					<p>Indore – Ujjain Road<br>Indore – 453111</p>
 				</div>
 			</div>
-        </section>
-		<!-- /CONTACT -->
+			<div class="col-md-4 wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.7s">
+				<div class="light-box box-hover">
+					<h2><span>Phone</span></h2>
+					<p>+918827487737<br>+918305006647</p>
+				</div>
+			</div>
+			<div class="col-md-4 wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.9s">
+				<div class="light-box box-hover">
+					<h2><span>Email</span></h2>
+					<p><a href="mailto:spandan@svvv.edu.in">spandan@svvv.edu.in</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<a id="get_directions" class="learn-more-btn btn-effect" target="_blank" href="https://www.google.co.in/maps/place/Shri+Vaishnav+Vidyapeeth+Vishwavidyalaya/@22.824693,75.8474383,17z/data=!3m1!4b1!4m5!3m4!1s0x3963039c587a8091:0x206d00d7a5e4afb3!8m2!3d22.824693!4d75.849627?hl=en&authuser=0"><i class="fa fa-map-marker"></i><span>Get Directions</span></a>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="social-buttons">
+					<li><a href="https://fb.com/SpandanSVVV/" target="_blank" class="social-btn"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="https://twitter.com/Spandan_2018" target="_blank" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="https://instagram.com/spandan_2018/" target="_blank" class="social-btn"><i class="fa fa-instagram"></i></a></li>
+					<li><a href="https://youtube.com/c/SpandanSVVV/" target="_blank" class="social-btn"><i class="fa fa-youtube"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /CONTACT -->
 
 		<!--FOOTER-->
 		<footer>
@@ -219,33 +237,21 @@
 				<div class="row">
 					<div class="col-md-6 align-center">
 						<ul class="legals">
-							<li><button class="md-trigger " data-modal="modal-11">Disclaimer</button></li>
-							<li>&copy; Spandan 2018, made with <i class="fa fa-heart"></i>  by Team Spandan</li>
+							<li><a href="#">Team Spandan</a></li>
+							<li><a href="http://www.indraniltiwary.com" target="_blank">Indranil Tiwary</a></li>
+							<li><a href="http://himankpathak.me" target="_blank">Himank Pathak</a></li>
+							<li><a href="http://www.digitalprojekt.co" target="_blank">Digital Projekt</a></li>
 						</ul>
 					</div>
-					<div class="md-modal md-effect-9" id="modal-11">
-						<div class="md-content padding-none">
-							<div class="folio">
-								<div class="sp-name disclaimer"><strong>Disclaimer</strong></div>
-								<div class="sp-dsc disclaim-border">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-									<br /><br />
-									Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-								</div>
-								<button class="md-close"><i class="fa fa-times"></i></button>
-							</div>
-						</div>
-					</div>
-					<div class="md-overlay"></div>
 				</div>
 			</div>
-        </footer>
+    </footer>
 		<!-- /FOOTER -->
 
 	</div>
 		<!--SCRIPTS-->
 		<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-		<script src="formPage.js"></script>
+		<script src="assets/formPage.js"></script>
 
 		<script type="text/javascript" src="assets/js/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="assets/js/jquery-ui-1.10.4.min.js"></script>

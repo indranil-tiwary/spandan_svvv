@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<meta http-equiv="Content-Language" content="en">
 
 		<!-- FAVICON -->
 		<link rel="apple-touch-icon" sizes="57x57" href="fav/apple-icon-57x57.png">
@@ -19,20 +20,31 @@
 		<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
 		<link rel="manifest" href="favicon/manifest.json">
-		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileColor" content="#0c59d8">
 		<meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
-		<meta name="theme-color" content="#ffffff">
+		<meta name="theme-color" content="#0c59d8">
 
 		<!-- TITLE -->
-		<title>Spandan SVVV 2018</title>
+		<title>Spandan 2018 SVVV | Dashboard</title>
 
 		<!-- DESCRIPTION -->
-		<meta name="description" content="The Cultural Festival of Shri Vaishnav Vidyapeeth Vishwavidyalaya Indore - Spandan 2018" />
-		<meta name="keywords"  content="Event, Concert, Conference, Counter, Exhibition, Festival, Landing Page, Music, One Page, Registration Form, Seminar, Subscription, Mailchimp" />
+		<meta name="description" content="Central India's largest cultural and music festival and the official fest of Shri Vaishnav Vidyapeeth Vishwavidyalaya, Indore - Spandan 2018 SVVV" />
+		<meta name="keywords"  content="Spandan 2018, SVVV, Fest, Concert, Music Festival, Indore, Event" />
 		<meta name="author" content="Digital-Projekt" />
+		<meta name="robots" content="index, follow" />
+		<meta property="og:title" content="Spandan 2018 SVVV | Dashboard" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://spandan.svvv.edu.in/dashboard.html" />
+		<meta property="og:image" content="http://spandan.svvv.edu.in/spandan2018.png" />
+		<meta property="og:description" content="Central India's largest cultural and music festival and the official fest of Shri Vaishnav Vidyapeeth Vishwavidyalaya, Indore - Spandan 2018 SVVV">
+		<meta property="og:site_name" content="Spandan 2018, SVVV Indore">
+		<meta name="publisher" content="https://plus.google.com/+SpandanSVVV">
+		<meta name="distribution" content="Global" />
+		<meta name="rating" content="General" />
 
 		<!-- GOOGLE FONTS -->
-		<link href='http://fonts.googleapis.com/css?family=Raleway:400,700,600,500,300,200,100,800,900' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700,600,500,300,200,100,800,900' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:400,500' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
 
 		<!-- STYLESHEETS -->
@@ -50,7 +62,14 @@
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
-
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113949655-1"></script>
+		<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+  		gtag('config', 'UA-113949655-1');
+		</script>
 	</head>
 
     <body id="top" data-spy="scroll" data-target=".header" data-offset="80">
@@ -73,12 +92,15 @@
 						 <span class="icon-bar"></span>
 						 <span class="icon-bar"></span>
 					  </button>
-					   <a class="navbar-brand" data-scroll href="#sec_1"><img src="assets/img/logo.png" alt="logo"/></a>
+					   <a class="navbar-brand" href="./index.html"><img src="assets/img/logo.png" alt="logo"/></a>
 				   </div>
 				   <div class="collapse navbar-collapse" id="example-navbar-collapse">
 					  <ul class="nav navbar-nav">
 						<li><a href="./index.html">Home</a></li>
 						<li><a href="./events.html">Events</a></li>
+						<li><a href="./workshop.html">Workshops</a></li>
+						<li><a href="./pronite.html">Pronites</a></li>
+						<li><a id="logoutButton" href="#" onclick="logoutMain();" class=" btn-effect wow animated fadeIn">Logout</a></li>
 						<li class="hidden"><a href="#sec_1">Home</a></li>
 					  </ul>
 				   </div>
@@ -86,7 +108,6 @@
 			</div>
 		</div>
 		<!--/HEADER-->
-
 
         <!--Dashboard-->
         <section class="team section-padding">
@@ -96,14 +117,12 @@
 						<h1 class="arrow">Dashboard</h1><hr>
 					  </div>
 						<div class="face-lock text-center" id="mainChange">
-							<img id="changeImg" src="assets/img/team/team-01.jpg" class="img-circle" alt="spandan profile">
-							<h1 id="changeName">Aakash Mehta</h1>
-							<h2 id="changeSPId">SP-0018101</h2>
-							<h2 id="changeEmail">abcd</h2>
-							<a href="#" class="learn-more-btn btn-effect wow animated fadeIn">Edit Profile</a>
+							<img id="changeImg" src="assets/img/team/team-01.jpg" class="img-circle" alt="spandan profile pic">
+							<h1 id="changeName">Your Name</h1>
+							<h2 style="color:#fff" id="changeSPId">SPID-Here</h2>
+							<h2 style="color:#fff" id="changeEmail">your@email.com</h2>
+							<a href="#" onclick="" class="learn-more-btn btn-effect wow animated fadeIn">Edit Profile</a>
 						</div>
-
-
 					</div>
 
 				</div>
@@ -115,16 +134,35 @@
 							<div class="col-lg-8 align-center about">
 								<h1 class="arrow">Registered Events</h1>
 								<hr>
-								<ul>
-									<li> <h1>Taal</h1> </li>
-									<li><h1>Swaranjali</h1></li>
+								<ul id="listEvents" style="color:#fff">
+
 								</ul>
-								<a href="./events.html" class="learn-more-btn btn-effect wow animated fadeIn">Register For More!</a>
+								<div id="butUnregEvent">
+								<a href="#/" onclick="unregEvent();" class="learn-more-btn btn-effect wow animated fadeIn">Unregister Event?</a>
+								</div>
+								<a href="./events.html" class="learn-more-btn btn-effect wow animated fadeIn">Register for events!</a>
 							</div>
 						</div>
 					</div>
         </section>
 		<!--/SPEAKER-->
+		<section class="intro text-center section-padding" id="intro">
+			<div class="container wow animated fadeInLeft animated" data-wow-duration="1s" data-wow-delay="0.5s">
+				<div class="row">
+					<div class="col-lg-8 align-center about">
+						<h1 class="arrow">Registered Workshops</h1>
+						<hr>
+						<ul id="listWorkshops" style="color:#fff;padding-left:10vw;padding-right:10vw;">
+
+						</ul>
+						<div id="butUnregWorkshop">
+						<a href="#/" onclick="unregWork();" class="learn-more-btn btn-effect wow animated fadeIn">Unregister Workshop?</a>
+						</div>
+						<a href="./workshop.html" class="learn-more-btn btn-effect wow animated fadeIn">Register for workshops!</a>
+					</div>
+				</div>
+			</div>
+		</section>
 
 		<!--Dashboard-->
 		<section class="team section-padding">
@@ -179,7 +217,7 @@
 					<div class="col-md-4 wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.7s">
 						<div class="light-box box-hover">
 							<h2><span>Phone</span></h2>
-							<p>91-731-2729071-75<br>91-731-2349111-2</p>
+							<p>+918827487737<br>+918305006647</p>
 						</div>
 					</div>
 					<div class="col-md-4 wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.9s">
@@ -190,15 +228,15 @@
 					</div>
 				</div>
 				<div class="row">
-					<a id="get_directions" class="learn-more-btn btn-effect" href="https://www.google.co.in/maps/place/Shri+Vaishnav+Vidyapeeth+Vishwavidyalaya/@22.824693,75.8474383,17z/data=!3m1!4b1!4m5!3m4!1s0x3963039c587a8091:0x206d00d7a5e4afb3!8m2!3d22.824693!4d75.849627?hl=en&authuser=0"><i class="fa fa-map-marker"></i><span>Get Directions</span></a>
+					<a id="get_directions" class="learn-more-btn btn-effect" target="_blank" href="https://www.google.co.in/maps/place/Shri+Vaishnav+Vidyapeeth+Vishwavidyalaya/@22.824693,75.8474383,17z/data=!3m1!4b1!4m5!3m4!1s0x3963039c587a8091:0x206d00d7a5e4afb3!8m2!3d22.824693!4d75.849627?hl=en&authuser=0"><i class="fa fa-map-marker"></i><span>Get Directions</span></a>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="social-buttons">
-							<li><a href="https://www.fb.com/SpandanSVVV/" class="social-btn"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="https://twitter.com/Spandan_2018" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="https://www.instagram.com/spandan_2018/" class="social-btn"><i class="fa fa-instagram"></i></a></li>
-							<li><a href="https://www.youtube.com/c/SpandanSVVV/" class="social-btn"><i class="fa fa-youtube"></i></a></li>
+							<li><a href="https://fb.com/SpandanSVVV/" target="_blank" class="social-btn"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/Spandan_2018" target="_blank" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="https://instagram.com/spandan_2018/" target="_blank" class="social-btn"><i class="fa fa-instagram"></i></a></li>
+							<li><a href="https://youtube.com/c/SpandanSVVV/" target="_blank" class="social-btn"><i class="fa fa-youtube"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -212,33 +250,21 @@
 				<div class="row">
 					<div class="col-md-6 align-center">
 						<ul class="legals">
-							<li><button class="md-trigger " data-modal="modal-11">Disclaimer</button></li>
-							<li><a href="http://multia.in/">Made in Multia</a></li>
+							<li><a href="#">Team Spandan</a></li>
+							<li><a href="http://www.indraniltiwary.com" target="_blank">Indranil Tiwary</a></li>
+							<li><a href="http://himankpathak.me" target="_blank">Himank Pathak</a></li>
+							<li><a href="http://www.digitalprojekt.co" target="_blank">Digital Projekt</a></li>
 						</ul>
 					</div>
-					<div class="md-modal md-effect-9" id="modal-11">
-						<div class="md-content padding-none">
-							<div class="folio">
-								<div class="sp-name disclaimer"><strong>Disclaimer</strong></div>
-								<div class="sp-dsc disclaim-border">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-									<br /><br />
-									Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-								</div>
-								<button class="md-close"><i class="fa fa-times"></i></button>
-							</div>
-						</div>
-					</div>
-					<div class="md-overlay"></div>
 				</div>
 			</div>
-        </footer>
+    </footer>
 		<!-- /FOOTER -->
 
 	</div>
 		<!--SCRIPTS-->
 		<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-		<script src="dashPage.js"></script>
+		<script src="assets/dashPage.js"></script>
 
 		<script type="text/javascript" src="assets/js/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="assets/js/jquery-ui-1.10.4.min.js"></script>

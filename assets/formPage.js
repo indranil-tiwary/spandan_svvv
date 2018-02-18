@@ -1,6 +1,11 @@
 function checkerBoi(){
   if(sessionStorage.tokenEdit){
-    console.log("STAY");
+    eventHolder="";
+    wsHolder="";
+  }
+  else if (sessionStorage.editProfile){
+    initialSS=sessionStorage.SpandanSessionValue;
+    checkFirebaseData();
   }
   else{
     window.location.href = "index.html";
@@ -12,7 +17,6 @@ function firebasekaAuth(){
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
-    // ...
   });
 }
 
@@ -27,10 +31,8 @@ function checkLoginState() {
   function statusChangeCallback(response) {
    if (response.status === 'connected') {
      // Logged into your app and Facebook.
-     console.log("Connected into Facebook");
      facebookMain();
       } else {
-        console.log("Please log into Facebook");
         // The person is not logged into your app or we are unable to tell.
       //document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
     }
@@ -38,10 +40,8 @@ function checkLoginState() {
 }
 
 function facebookMain() {
-    console.log('Welcome!  Fetching your information.... ');
     FB.api('/me','GET',{"fields":"id,name,picture.width(400).height(400),email,hometown"},
     function(response) {
-      console.log('Successful login for: ' + response.name);
       var uid=response.id;
       var urlpic=response.picture.data.url;
       var name=response.name;
@@ -64,13 +64,11 @@ function readSPIDData(){
   var starRef = firebase.database().ref('spandanid/SPId');
   starRef.on('value', function(snapshot) {
   spandanId=snapshot.val();
-  console.log(snapshot.val())
   });
 }
 
 function writeUserData(userId, imageUrl, name, email, mobile, college, city, year, branch, degree) {
-
-  firebase.database().ref('users/' + initialSS).set({
+  firebase.database().ref('users/' + initialSS).update({
     spid: spandanId,
     fbid: userId,
     profile_picture : imageUrl,
@@ -82,13 +80,28 @@ function writeUserData(userId, imageUrl, name, email, mobile, college, city, yea
     year: year,
     branch: branch,
     degree: degree,
-    events:""
+    events: eventHolder,
+    workshop: wsHolder
   });
-  firebase.database().ref('spandanid/').set({
+  if(sessionStorage.tokenEdit){
+  firebase.database().ref('spandanid/').update({
     SPId:spandanId+1
-  });
+  });}
   sessionStorage.clear();
   sessionStorage.SpandanSessionValue=userId;
+}
+
+function editFormData(uid, urlpic, name, email, mobile,college,city,year,branch,degree){
+  document.getElementById('uid').value= uid;
+  document.getElementById('urlpic').value= urlpic;
+  document.getElementById('name').value= name;
+  document.getElementById('email').value= email;
+  document.getElementById('mobile').value=mobile;
+  document.getElementById('college').value=college;
+  document.getElementById('city').value=city;
+  document.getElementById('year').value=year;
+  document.getElementById('branch').value=branch;
+  document.getElementById('degree').value=degree;
 }
 
 function checkFirebaseData(){
@@ -96,17 +109,15 @@ function checkFirebaseData(){
   leadsRef.on('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
-      if (initialSS==childData['fbid'] && sessionStorage.SpandanSessionValue ){
+      if (initialSS==childData['fbid']){
+        spandanId=childData['spid'];
+        eventHolder=childData['events'];
+        wsHolder=childData['workshop'];
         var uid=childData['fbid'];
         var urlpic=childData['profile_picture'];
-        var name=childData['username'];
-        var email=childData['email'];
-        console.log(childData);
-        window.location.href = "dashboard.html";
-      }
-      else{
-        console.log(">>>>>>>>>>>>>>>>")
-        window.location.href = "form.html";
+        editFormData(uid, urlpic, childData['username'],childData['email'],childData['mobile'],
+                      childData['college'], childData['city'], childData['year'],
+                    childData['branch'], childData['degree']);
       }
    });
  });
@@ -133,7 +144,6 @@ window.fbAsyncInit = function() {
       version    : 'v2.11'
     });
     FB.AppEvents.logPageView();
-    console.log("fb Initialized");
     checkLoginState();
   };
 
@@ -149,5 +159,7 @@ window.fbAsyncInit = function() {
    firebasekaAuth();
    var database = firebase.database();
    var spandanId;
+   var eventHolder;
+   var wsHolder;
    var initialSS;
    checkerBoi();

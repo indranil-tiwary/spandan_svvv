@@ -30,14 +30,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, pre, a
 
 }
 
-
 strong{
 	font-weight:bold;
 }
 
 body {
 	color: #7a7a7a;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	line-height:1.5;
@@ -1000,7 +999,7 @@ div.avatar {
 	padding-bottom: 20px;
 	text-transform: uppercase;
 	letter-spacing: 0.2em;
-	font-size: 0.8em;
+	font-size: 1.2em;
 	color: #0c59d8;
 }
 
@@ -1016,7 +1015,6 @@ div.avatar {
 .md-content .sp-social ul {
 	text-align:center;
 }
-
 
 .sp-social ul li {
 	display: inline-block;
