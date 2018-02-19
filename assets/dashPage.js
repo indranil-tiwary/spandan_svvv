@@ -42,10 +42,10 @@ function updateEventList(){
       replaceName="Ambriti - The Fashion Show";
     }
     else if (SPevents[i]=="navyata") {
-      replaceName="Navyata - Best Out Of Waste";
+      replaceName="Navyata - Design a dress using Newspapers";
     }
     else if (SPevents[i]=="mime") {
-      replaceName="Mime & Nukkad Naatak";
+      replaceName="Mime";
     }
     else if (SPevents[i]=="kavyanjali") {
       replaceName="Kavyanjali - Poetry Competition";
@@ -89,6 +89,9 @@ function updateEventList(){
     else if (SPevents[i]=="treasurehunt") {
       replaceName="Treasure Hunt";
     }
+    else if (SPevents[i]=="nukkad") {
+      replaceName="Nukkad Naatak";
+    }
     jQuery("#listEvents").append('<li><h2>'+replaceName+'</h2></li>');
   }
 }
@@ -104,9 +107,6 @@ function updateWorkshopList(){
   for (var i = 0; i < arrayLength; i++) {
     if(SPws[i]=="culinary"){
       replaceName="Culinary Arts";
-    }
-    else if (SPws[i]=="skateboarding") {
-      replaceName="Skateboarding";
     }
     else if (SPws[i]=="blogging") {
       replaceName="Blogging/Vlogging";
@@ -199,7 +199,7 @@ function unregEvent(){
       replaceName="Ambriti - The Fashion Show";
     }
     else if (SPevents[i]=="navyata") {
-      replaceName="Navyata - Best Out Of Waste";
+      replaceName="Navyata - Design a dress using Newspapers";
     }
     else if (SPevents[i]=="mime") {
       replaceName="Mime & Nukkad Naatak";

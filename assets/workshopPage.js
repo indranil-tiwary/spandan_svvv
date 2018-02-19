@@ -10,11 +10,6 @@ function checkEvent(eName){
     writeUserEventData(eventFBName);
     jQuery("#modal-1").removeClass("md-show");
   }
-  else if (eName==2) {
-    var eventFBName="skateboarding"
-    writeUserEventData(eventFBName);
-    jQuery("#modal-2").removeClass("md-show");
-  }
   else if (eName==3) {
     var eventFBName="blogging"
     writeUserEventData(eventFBName);
@@ -62,9 +57,6 @@ var changerVar='<a onclick="" class="learn-more-btn btn-effect wow animated fade
 function eventCompleted(marker){
   if(marker=="culinary"){
     document.getElementById("event-1").innerHTML=changerVar;
-  }
-  else if (marker=="skateboarding") {
-    document.getElementById("event-2").innerHTML=changerVar;
   }
   else if (marker=="blogging") {
     document.getElementById("event-3").innerHTML=changerVar;

@@ -100,6 +100,11 @@ function checkEvent(eName){
     writeUserEventData(eventFBName);
     jQuery("#modal-19").removeClass("md-show");
   }
+  else if (eName==20) {
+    var eventFBName="nukkad"
+    writeUserEventData(eventFBName);
+    jQuery("#modal-20").removeClass("md-show");
+  }
 }
 else{
   fb_login();
@@ -181,6 +186,9 @@ function eventCompleted(marker){
   }
   else if (marker=="treasurehunt") {
     document.getElementById("event-19").innerHTML=changerVar;
+  }
+  else if (marker=="nukkad") {
+    document.getElementById("event-20").innerHTML=changerVar;
   }
 }
 
