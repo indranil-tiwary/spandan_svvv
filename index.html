@@ -69,9 +69,32 @@
   		gtag('js', new Date());
   		gtag('config', 'UA-113949655-1');
 		</script>
+		<audio autoplay loop id="player">
+      <source src="assets/spandananthem.mp3">
+			<p>If you can read this, your browser does not support the audio element.</p>
+		</audio>
+		<script>
+			var player;
+			window.onload = function(){
+				player= document.getElementById('player');
+				musicplayer=document.getElementById('musicPlayer');
+				}
+			function playMusic(){
+				player.play();
+				musicplayer.innerHTML='<a onclick="pauseMusic();"><i class="fa fa-pause-circle"></i></a>';
+			}
+			function pauseMusic(){
+				player.pause();
+				musicplayer.innerHTML='<a onclick="playMusic();"><i class="fa fa-play-circle"></i></a>';
+			}
+		</script>
 	</head>
 
     <body id="top" data-spy="scroll" data-target=".header" data-offset="80">
+
+			<div style="position:fixed;bottom:1rem;right:1rem;font-size:4rem;" id="musicPlayer">
+				<a onclick="pauseMusic();"><i class="fa fa-pause-circle"></i></a>
+			</div>
 
 		<!--PRELOADER-->
 		<div class="preloader">
